@@ -1,0 +1,6 @@
+module Pods_TradeMeBrowse {
+  umbrella header "Pods-TradeMeBrowse-umbrella.h"
+
+  export *
+  module * { export * }
+}
