@@ -37,13 +37,19 @@
                         <color key="textColor" red="0.074509803920000006" green="0.51764705879999995" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7GC-39-LoC">
+                        <rect key="frame" x="36" y="26" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="8Wt-6q-yj5" firstAttribute="top" secondItem="xRx-Fw-EEk" secondAttribute="bottom" id="26t-22-R7z"/>
                 <constraint firstAttribute="bottom" secondItem="8Wt-6q-yj5" secondAttribute="bottom" id="4qE-8F-90X"/>
+                <constraint firstAttribute="bottom" secondItem="7GC-39-LoC" secondAttribute="bottom" constant="26" id="8Mu-qX-m1x"/>
+                <constraint firstItem="7GC-39-LoC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="26" id="SOM-Ul-gLt"/>
                 <constraint firstItem="8Wt-6q-yj5" firstAttribute="trailing" secondItem="xRx-Fw-EEk" secondAttribute="trailing" id="Zgg-7Y-Ji5"/>
+                <constraint firstItem="7GC-39-LoC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="36" id="amE-HT-GOi"/>
                 <constraint firstItem="xRx-Fw-EEk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="asq-HW-Tne"/>
                 <constraint firstItem="8Wt-6q-yj5" firstAttribute="leading" secondItem="xRx-Fw-EEk" secondAttribute="leading" id="f56-Ef-Rzb"/>
                 <constraint firstItem="xRx-Fw-EEk" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.6" id="gZy-xf-NM1"/>
@@ -57,6 +63,7 @@
             <size key="customSize" width="411" height="71"/>
             <connections>
                 <outlet property="ListingID" destination="8Wt-6q-yj5" id="gU4-Ai-EHF"/>
+                <outlet property="activityIndicator" destination="7GC-39-LoC" id="Kx9-xS-fRe"/>
                 <outlet property="thumbnail" destination="rVe-YC-vVk" id="xkB-aM-X9H"/>
                 <outlet property="title" destination="xRx-Fw-EEk" id="CFs-MK-KJD"/>
             </connections>

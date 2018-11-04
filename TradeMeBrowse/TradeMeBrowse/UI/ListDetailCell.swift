@@ -13,8 +13,15 @@ class ListDetailCell: UICollectionViewCell {
     @IBOutlet var thumbnail: UIImageView!
     @IBOutlet var title: UILabel!
     @IBOutlet var ListingID: UILabel!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    func configure(with model: ListingModel) {
-        
+    func startLoadingAnimation() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    func stopLoadingAnimation() {
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
     }
 }

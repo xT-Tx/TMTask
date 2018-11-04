@@ -48,9 +48,11 @@ extension ListingViewController: UICollectionViewDelegate, UICollectionViewDataS
             let listing = listings[indexPath.item]
             cell.title.text = listing.name
             cell.ListingID.text = "\(listing.id)"
+            cell.startLoadingAnimation()
             listing.fetchPhotoIfNecessary { (image) in
                 DispatchQueue.main.async {
                     cell.thumbnail.image = image
+                    cell.stopLoadingAnimation()
                 }
             }
             return cell
