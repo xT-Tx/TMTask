@@ -1,4 +1,5 @@
 target 'TradeMeBrowse' do
     platform :ios, '12.0'
     pod 'Alamofire',    '~> 4.7'
+    pod 'AlamofireImage', '~> 3.4'
 end

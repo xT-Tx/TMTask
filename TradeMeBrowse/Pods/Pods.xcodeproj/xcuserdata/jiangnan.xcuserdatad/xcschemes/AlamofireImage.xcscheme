@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "11BF19A19BD752441C7F32EE6E0693B0"
-               BlueprintName = "Pods-TradeMeBrowse"
+               BlueprintIdentifier = "B1C6F2BD9BD6F075AA0A3CD9707ADF40"
+               BlueprintName = "AlamofireImage"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libPods-TradeMeBrowse.a">
+               BuildableName = "libAlamofireImage.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

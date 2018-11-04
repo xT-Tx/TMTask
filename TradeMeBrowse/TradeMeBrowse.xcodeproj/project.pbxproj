@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		664A5FFB02BFF9A94A26BB4F /* libPods-TradeMeBrowse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC471FBE42AEE4F9BF044B43 /* libPods-TradeMeBrowse.a */; };
+		9C2FF364218E765E0098072B /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2FF363218E765E0098072B /* ListingViewController.swift */; };
+		9C2FF367218E92030098072B /* ListDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2FF365218E92030098072B /* ListDetailCell.swift */; };
+		9C2FF368218E92030098072B /* ListDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C2FF366218E92030098072B /* ListDetailCell.xib */; };
 		9C9EEF84218D418700841A98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9EEF83218D418700841A98 /* AppDelegate.swift */; };
-		9C9EEF86218D418700841A98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9EEF85218D418700841A98 /* ViewController.swift */; };
 		9C9EEF89218D418700841A98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C9EEF87218D418700841A98 /* Main.storyboard */; };
 		9C9EEF8B218D418900841A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9EEF8A218D418900841A98 /* Assets.xcassets */; };
 		9C9EEF8E218D418900841A98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C9EEF8C218D418900841A98 /* LaunchScreen.storyboard */; };
@@ -22,13 +24,16 @@
 		9C9EEFAD218DBF3100841A98 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C9EEFAC218DBF3100841A98 /* CategoryCell.xib */; };
 		9C9EEFAF218DC3FF00841A98 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9EEFAE218DC3FF00841A98 /* ModelManager.swift */; };
 		9C9EEFB1218DDFEC00841A98 /* SubcategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9EEFB0218DDFEC00841A98 /* SubcategoryViewController.swift */; };
+		9CC52A88218EA18900E40E38 /* ListFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC52A87218EA18900E40E38 /* ListFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		67352640E3FF050EC551E12F /* Pods-TradeMeBrowse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeMeBrowse.release.xcconfig"; path = "Pods/Target Support Files/Pods-TradeMeBrowse/Pods-TradeMeBrowse.release.xcconfig"; sourceTree = "<group>"; };
+		9C2FF363218E765E0098072B /* ListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
+		9C2FF365218E92030098072B /* ListDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCell.swift; sourceTree = "<group>"; };
+		9C2FF366218E92030098072B /* ListDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListDetailCell.xib; sourceTree = "<group>"; };
 		9C9EEF80218D418700841A98 /* TradeMeBrowse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradeMeBrowse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9EEF83218D418700841A98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9C9EEF85218D418700841A98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9C9EEF88218D418700841A98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C9EEF8A218D418900841A98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C9EEF8D218D418900841A98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +47,7 @@
 		9C9EEFAC218DBF3100841A98 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		9C9EEFAE218DC3FF00841A98 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		9C9EEFB0218DDFEC00841A98 /* SubcategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryViewController.swift; sourceTree = "<group>"; };
+		9CC52A87218EA18900E40E38 /* ListFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFlowLayout.swift; sourceTree = "<group>"; };
 		EC471FBE42AEE4F9BF044B43 /* libPods-TradeMeBrowse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TradeMeBrowse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F6206FE8ACB29464C90D51 /* Pods-TradeMeBrowse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeMeBrowse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TradeMeBrowse/Pods-TradeMeBrowse.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,13 +117,16 @@
 			children = (
 				9C9EEFA0218D838A00841A98 /* HomeViewController.swift */,
 				9C9EEFB0218DDFEC00841A98 /* SubcategoryViewController.swift */,
+				9C2FF363218E765E0098072B /* ListingViewController.swift */,
 				9C9EEF87218D418700841A98 /* Main.storyboard */,
 				9C9EEFA6218D8A7E00841A98 /* ContentLayout.swift */,
+				9CC52A87218EA18900E40E38 /* ListFlowLayout.swift */,
 				9C9EEFA2218D85D900841A98 /* CategoryCell.swift */,
 				9C9EEFAC218DBF3100841A98 /* CategoryCell.xib */,
+				9C2FF365218E92030098072B /* ListDetailCell.swift */,
+				9C2FF366218E92030098072B /* ListDetailCell.xib */,
 				9C9EEF8A218D418900841A98 /* Assets.xcassets */,
 				9C9EEF8C218D418900841A98 /* LaunchScreen.storyboard */,
-				9C9EEF85218D418700841A98 /* ViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -202,6 +211,7 @@
 				9C9EEF8E218D418900841A98 /* LaunchScreen.storyboard in Resources */,
 				9C9EEF8B218D418900841A98 /* Assets.xcassets in Resources */,
 				9C9EEF89218D418700841A98 /* Main.storyboard in Resources */,
+				9C2FF368218E92030098072B /* ListDetailCell.xib in Resources */,
 				9C9EEF96218D490600841A98 /* Script.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,14 +249,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C9EEFA7218D8A7E00841A98 /* ContentLayout.swift in Sources */,
+				9CC52A88218EA18900E40E38 /* ListFlowLayout.swift in Sources */,
 				9C9EEFAF218DC3FF00841A98 /* ModelManager.swift in Sources */,
 				9C9EEFA1218D838A00841A98 /* HomeViewController.swift in Sources */,
 				9C9EEF9D218D7BF800841A98 /* ListingModel.swift in Sources */,
-				9C9EEF86218D418700841A98 /* ViewController.swift in Sources */,
+				9C2FF367218E92030098072B /* ListDetailCell.swift in Sources */,
 				9C9EEF99218D697A00841A98 /* CategoryModel.swift in Sources */,
 				9C9EEF84218D418700841A98 /* AppDelegate.swift in Sources */,
 				9C9EEFA4218D85D900841A98 /* CategoryCell.swift in Sources */,
 				9C9EEFB1218DDFEC00841A98 /* SubcategoryViewController.swift in Sources */,
+				9C2FF364218E765E0098072B /* ListingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,11 +28,11 @@ class HomeViewController: UIViewController {
     }
     
     fileprivate func updateCategory() {
-        ModelManager.shared.requestCategory("0", completion: { [weak self]
+        ModelManager.shared.requestCategory("0", completion: {
             models in
-            if let strongSelf = self {
-                strongSelf.categories = models
-                strongSelf.collectionView.reloadData()
+            self.categories = models
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
             }
         })
     }
