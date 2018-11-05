@@ -19,15 +19,20 @@ class ListingModel {
         self.name = name
         self.id = id
         self.photoURL = photoURL
-        fetchPhotoIfNecessary()
+        if photoURL != nil {
+            fetchPhotoIfNecessary()
+        }
     }
     
-    func fetchPhotoIfNecessary(_ completion: @escaping (UIImage) -> Void = { _ in }) {
-        if let url = photoURL {
-            if let image = ModelManager.shared.cachedImage(url) {
-                completion(image)
-                return
-            }
+    func fetchPhotoIfNecessary(_ completion: @escaping (UIImage?) -> Void = { _ in }) {
+        guard let url = photoURL else {
+            completion(nil)
+            return
+        }
+        if let image = ModelManager.shared.cachedImage(url) {
+            completion(image)
+        }
+        else {
             ModelManager.shared.requestImage(url, completion: {
                 image in
                 completion(image)

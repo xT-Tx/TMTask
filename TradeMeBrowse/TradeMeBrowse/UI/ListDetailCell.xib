@@ -37,7 +37,7 @@
                         <color key="textColor" red="0.074509803920000006" green="0.51764705879999995" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7GC-39-LoC">
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7GC-39-LoC">
                         <rect key="frame" x="36" y="26" width="20" height="20"/>
                     </activityIndicatorView>
                 </subviews>

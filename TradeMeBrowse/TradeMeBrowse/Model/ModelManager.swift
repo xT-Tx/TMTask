@@ -15,6 +15,11 @@ extension String {
     static let authorizationKey = "Authorization"
 }
 
+enum ModelError: Error {
+    case emptyData
+    case connectionFailed
+}
+
 class ModelManager: NSObject {
 
     static var shared = ModelManager()
@@ -23,8 +28,8 @@ class ModelManager: NSObject {
     
     private var cachedImages = AutoPurgingImageCache(memoryCapacity: ModelManager.maximumCacheBytes, preferredMemoryUsageAfterPurge: ModelManager.preferredCacheBytes)
     
-    /// request category with parameters number and depth(default to 1)
-    func requestCategory(_ number: String, depth: UInt = 1, completion: @escaping ([CategoryModel]) -> Void) {
+    /// request category with parameters number, rootLevel and depth(default to 1)
+    func requestCategory(_ number: String, rootLevel: Int, depth: UInt = 1, completion: @escaping ([CategoryModel]) -> Void) {
         guard let url = URL(string: "https://api.tmsandbox.co.nz/v1/Categories/\(number).json?depth=\(depth)") else { return }
         let queue = DispatchQueue(label: "com.category.trademe", qos: .background, attributes: .concurrent)
         
@@ -35,7 +40,7 @@ class ModelManager: NSObject {
                 if let subcategories = data["Subcategories"] as? Array<JSONDict> {
                     var models = [CategoryModel]()
                     subcategories.forEach {
-                        models.append(self.transform($0))
+                        models.append(self.transform($0, level: rootLevel+1))
                     }
                     completion(models)
                 }
@@ -43,7 +48,7 @@ class ModelManager: NSObject {
     }
     
     /// transform raw data into a CategoryModel
-    private func transform(_ data: JSONDict) -> CategoryModel {
+    func transform(_ data: JSONDict, level: Int) -> CategoryModel {
         guard let name = data["Name"] as? String,
             let number = data["Number"] as? String,
             let path = data["Path"] as? String,
@@ -51,27 +56,34 @@ class ModelManager: NSObject {
             else {
                 return CategoryModel(number: "", name: "", path: "")
         }
-        return CategoryModel(number: number, name: name, path: path, isLeaf: isLeaf)
+        let model = CategoryModel(number: number, name: name, path: path, isLeaf: isLeaf)
+        model.level = level
+//        if !isLeaf {
+//            if let subcategories = data["Subcategories"] as? Array<JSONDict> {
+//                model.subCategories = subcategories
+//            }
+//        }
+        return model
     }
     
     /// request data of listings with parameter category
-    func requestSearchResults(in category: String, completion: @escaping ([ListingModel]) -> Void) {
+    func requestSearchResults(in category: String, completion: @escaping (Result<[ListingModel]>) -> Void) {
         guard let url = URL(string: "https://api.tmsandbox.co.nz/v1/Search/General.json?category=\(category)") else { return }
         let queue = DispatchQueue(label: "com.search.trademe", qos: .background, attributes: .concurrent)
         Alamofire.request(url, method: .get,
                           headers:[.authorizationKey: authValue])
             .responseJSON(queue: queue, completionHandler: { response in
-                guard response.result.isSuccess else { return }
-                guard let data = response.result.value as? JSONDict else { return }
-                guard let count = data["TotalCount"] as? Int, count > 0 else { return }
-                guard let list = data["List"] as? Array<JSONDict> else { return }
+                guard response.result.isSuccess else { completion(Result.failure(ModelError.connectionFailed)); return }
+                guard let data = response.result.value as? JSONDict else { completion(Result.failure(ModelError.connectionFailed)); return }
+                guard let count = data["TotalCount"] as? Int, count > 0 else { completion(Result.failure(ModelError.emptyData)); return }
+                guard let list = data["List"] as? Array<JSONDict> else { completion(Result.failure(ModelError.connectionFailed)); return }
                 
                 var models = [ListingModel]()
                 for index in 0..<min(count, 20) {
                     let model = self.transformList(list[index])
                     models.append(model)
                 }
-                completion(models)
+                completion(Result.success(models))
             })
     }
     
@@ -104,13 +116,13 @@ class ModelManager: NSObject {
     
     /// Returns a Request just in case that sometimes we want to cancel the request
     @discardableResult
-    func requestImage(_ url: String, completion: @escaping (UIImage) -> Void = { _ in }) -> Request? {
+    func requestImage(_ url: String, completion: @escaping (UIImage?) -> Void = { _ in }) -> Request? {
         guard let imageURL = URL(string: url) else { return nil }
         let request = Alamofire.request(url)
         let queue = DispatchQueue(label: "com.thumbnail.trademe", qos: .background, attributes: .concurrent)
         DispatchQueue.global().async {
             Alamofire.request(imageURL).responseImage(queue: queue) { response in
-                guard let image = response.result.value else { return }
+                guard let image = response.result.value else { completion(nil); return }
                 self.cachedImages.add(image, withIdentifier: url)
                 completion(image)
             }

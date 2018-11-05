@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ListingViewController: UIViewController, CategoryPresenter {
+class ListingViewController: UIViewController {
 
     var parentCategory: CategoryModel?
     
     var listings = [ListingModel]()
     
     @IBOutlet fileprivate var collectionView: UICollectionView!
+    @IBOutlet fileprivate var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +30,22 @@ class ListingViewController: UIViewController, CategoryPresenter {
     func fetchListings() {
         guard let categoryNumber = parentCategory?.number else { return }
         ModelManager.shared.requestSearchResults(in: categoryNumber, completion: {
-            models in
-            self.listings = models
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+            result in
+            switch result {
+            case .success(let models):
+                self.listings = models
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                    self.activityIndicator.stopAnimating()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    if let modelError = error as? ModelError {
+                        let alert = UIAlertController.createAlert(for: modelError)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    self.activityIndicator.stopAnimating()
+                }
             }
         })
     }
@@ -65,5 +78,15 @@ extension ListingViewController: UICollectionViewDelegate, UICollectionViewDataS
 extension ListingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width, height: 72)
+    }
+}
+
+import Alamofire
+extension UIAlertController {
+    class func createAlert(for error: ModelError) -> UIAlertController {
+        let message = error == .emptyData ? "No data in this category." : "Failed to request data."
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        return alert
     }
 }
