@@ -28,16 +28,27 @@ class HomeViewController: UIViewController {
         
         collectionView.collectionViewLayout = ContentLayout()
         activityIndicator.startAnimating()
-        updateCategory()
+        fetchTopCategory()
     }
     
-    fileprivate func updateCategory() {
+    fileprivate func fetchTopCategory() {
         ModelManager.shared.requestCategory("0", rootLevel: 0, depth: 1, completion: {
-            models in
-            self.categories = models
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-                self.activityIndicator.stopAnimating()
+            result in
+            switch result {
+            case .success(let models):
+                self.categories = models
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                    self.activityIndicator.stopAnimating()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    if let modelError = error as? ModelError {
+                        let alert = UIAlertController.createAlert(for: modelError)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    self.activityIndicator.stopAnimating()
+                }
             }
         })
     }
@@ -84,12 +95,23 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             activityIndicator.startAnimating()
             collectionView.isUserInteractionEnabled = false
             ModelManager.shared.requestCategory(selectedCategory.number, rootLevel: selectedCategory.level, depth: 1, completion: {
-                models in
-                selectedCategory.subCategories = models
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                    collectionView.isUserInteractionEnabled = true
-                    self.performBatchUpdate(for: selectedCategory, at: indexPath)
+                result in
+                switch result {
+                case .success(let models):
+                    selectedCategory.subCategories = models
+                    DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
+                        collectionView.isUserInteractionEnabled = true
+                        self.performBatchUpdate(for: selectedCategory, at: indexPath)
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        if let modelError = error as? ModelError {
+                            let alert = UIAlertController.createAlert(for: modelError)
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        self.activityIndicator.stopAnimating()
+                    }
                 }
             })
         }
@@ -169,7 +191,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             size.width *= scale * scale
             size.height *= scale * scale
         default:
-            size = CGSize(width: 70, height: 40)
+            size.width *= scale * scale
+            size.height = 40
         }
         return size
     }

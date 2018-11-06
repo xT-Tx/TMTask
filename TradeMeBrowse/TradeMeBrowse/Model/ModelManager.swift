@@ -46,20 +46,20 @@ class ModelManager: NSObject {
     private var cachedImages = AutoPurgingImageCache(memoryCapacity: ModelManager.maximumCacheBytes, preferredMemoryUsageAfterPurge: ModelManager.preferredCacheBytes)
     
     /// request category with parameters number, rootLevel and depth(default to 1)
-    func requestCategory(_ number: String, rootLevel: Int, depth: UInt = 1, completion: @escaping ([CategoryModel]) -> Void) {
+    func requestCategory(_ number: String, rootLevel: Int, depth: UInt = 1, completion: @escaping (Result<[CategoryModel]>) -> Void) {
         guard let url = URL(string: .baseURL + "Categories/\(number).json?depth=\(depth)") else { return }
         let queue = DispatchQueue(label: "com.category.trademe", qos: .background, attributes: .concurrent)
         
         Alamofire.request(url, method: .get)
             .responseJSON(queue: queue, completionHandler: { response in
-                guard response.result.isSuccess else { return }
-                guard let data = response.result.value as? JSONDict else { return }
+                guard response.result.isSuccess else { completion(Result.failure(ModelError.connectionFailed)); return }
+                guard let data = response.result.value as? JSONDict else { completion(Result.failure(ModelError.emptyData)); return }
                 if let subcategories = data[.subcategoriesKey] as? Array<JSONDict> {
                     var models = [CategoryModel]()
                     subcategories.forEach {
                         models.append(self.transform($0, level: rootLevel+1))
                     }
-                    completion(models)
+                    completion(Result.success(models))
                 }
             })
     }
