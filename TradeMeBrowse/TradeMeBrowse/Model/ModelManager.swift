@@ -12,6 +12,7 @@ import AlamofireImage //using image cache
 typealias JSONDict = Dictionary<String, Any>
 
 extension String {
+    static let baseURL          = "https://api.tmsandbox.co.nz/v1/"
     static let authorizationKey = "Authorization"
     static let subcategoriesKey = "Subcategories"
     static let nameKey          = "Name"
@@ -23,7 +24,12 @@ extension String {
     static let titleKey         = "Title"
     static let listingIdKey     = "ListingId"
     static let pictureHrefKey   = "PictureHref"
-    
+    static let priceKey         = "PriceDisplay"
+    static let regionKey        = "Region"
+    static let categoryKey      = "Category"
+    static let photosKey        = "Photos"
+    static let valueKey         = "Value"
+    static let galleryKey       = "Gallery"
 }
 
 enum ModelError: Error {
@@ -41,7 +47,7 @@ class ModelManager: NSObject {
     
     /// request category with parameters number, rootLevel and depth(default to 1)
     func requestCategory(_ number: String, rootLevel: Int, depth: UInt = 1, completion: @escaping ([CategoryModel]) -> Void) {
-        guard let url = URL(string: "https://api.tmsandbox.co.nz/v1/Categories/\(number).json?depth=\(depth)") else { return }
+        guard let url = URL(string: .baseURL + "Categories/\(number).json?depth=\(depth)") else { return }
         let queue = DispatchQueue(label: "com.category.trademe", qos: .background, attributes: .concurrent)
         
         Alamofire.request(url, method: .get)
@@ -74,7 +80,7 @@ class ModelManager: NSObject {
     
     /// request data of listings with parameter category
     func requestSearchResults(in category: String, completion: @escaping (Result<[ListingModel]>) -> Void) {
-        guard let url = URL(string: "https://api.tmsandbox.co.nz/v1/Search/General.json?category=\(category)") else { return }
+        guard let url = URL(string: .baseURL + "Search/General.json?category=\(category)") else { return }
         let queue = DispatchQueue(label: "com.search.trademe", qos: .background, attributes: .concurrent)
         Alamofire.request(url, method: .get,
                           headers:[.authorizationKey: authValue])
@@ -122,15 +128,15 @@ class ModelManager: NSObject {
     
     /// Returns a Request just in case that sometimes we want to cancel the request
     @discardableResult
-    func requestImage(_ url: String, completion: @escaping (UIImage?) -> Void = { _ in }) -> Request? {
+    func requestImage(_ url: String, completion: @escaping (Result<UIImage>) -> Void = { _ in }) -> Request? {
         guard let imageURL = URL(string: url) else { return nil }
         let request = Alamofire.request(url)
         let queue = DispatchQueue(label: "com.thumbnail.trademe", qos: .background, attributes: .concurrent)
         DispatchQueue.global().async {
             Alamofire.request(imageURL).responseImage(queue: queue) { response in
-                guard let image = response.result.value else { completion(nil); return }
+                guard let image = response.result.value else { completion(Result.failure(ModelError.emptyData)); return }
                 self.cachedImages.add(image, withIdentifier: url)
-                completion(image)
+                completion(Result.success(image))
             }
         }
         
@@ -139,5 +145,34 @@ class ModelManager: NSObject {
     
     func cachedImage(_ url: String) -> Image? {
         return cachedImages.image(withIdentifier: url)
+    }
+    
+    func requestItemDetails(_ listingId: String, completion: @escaping (Result<ItemDetailsModel>) -> Void) {
+        guard let url = URL(string: .baseURL + "Listings/\(listingId).json") else { return }
+        let queue = DispatchQueue(label: "com.listings.trademe", qos: .background, attributes: .concurrent)
+        Alamofire.request(url, method: .get,
+                          headers:[.authorizationKey: authValue])
+            .responseJSON(queue: queue, completionHandler: { response in
+                guard response.result.isSuccess else { completion(Result.failure(ModelError.connectionFailed)); return }
+                guard let data = response.result.value as? JSONDict else { completion(Result.failure(ModelError.connectionFailed)); return }
+                guard let model = self.transformItemDetails(data) else { completion(Result.failure(ModelError.connectionFailed)); return }
+                completion(Result.success(model))
+            })
+    }
+    
+    func transformItemDetails(_ json: JSONDict) -> ItemDetailsModel? {
+        guard let listingId = json[.listingIdKey] as? Int,
+            let title = json[.titleKey] as? String,
+            let category = json[.categoryKey]  as? String,
+            let price = json[.priceKey] as? String
+        else { return nil }
+        let region = json[.regionKey] as? String
+        let item = ItemDetailsModel(listingId: listingId, title: title, category: category, price: price, region: region)
+        if let photos = json[.photosKey] as? Array<JSONDict>,
+            let first = photos.first,
+            let value = first[.valueKey] as? JSONDict{
+            item.photoHref = value[.galleryKey] as? String
+        }
+        return item
     }
 }

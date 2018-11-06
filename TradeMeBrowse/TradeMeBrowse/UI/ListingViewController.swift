@@ -62,9 +62,11 @@ extension ListingViewController: UICollectionViewDelegate, UICollectionViewDataS
             cell.title.text = listing.name
             cell.ListingID.text = "\(listing.id)"
             cell.startLoadingAnimation()
-            listing.fetchPhotoIfNecessary { (image) in
+            listing.fetchPhotoIfNecessary { (result) in
                 DispatchQueue.main.async {
-                    cell.thumbnail.image = image
+                    if case let .success(image) = result {
+                        cell.thumbnail.image = image
+                    }
                     cell.stopLoadingAnimation()
                 }
             }
@@ -72,6 +74,14 @@ extension ListingViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let listing = listings[indexPath.item]
+        let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        nextVC.listingID = listing.id
+        nextVC.photoHref = listing.photoURL
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 

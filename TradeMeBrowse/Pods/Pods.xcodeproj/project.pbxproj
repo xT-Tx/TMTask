@@ -12,7 +12,7 @@
 		0E780BA42B36C34B8B4AD18F8A19D5EE /* AFIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA9DBCBC6EF8B5492D43817656236EB /* AFIError.swift */; };
 		258E71ECF3D900477A267306555F9A8E /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F717CAE4179BFB953E6B8B1B77DFFD9 /* TaskDelegate.swift */; };
 		281D6E21757495CDC7A208C41DA3B93A /* AlamofireImage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F8CC3D2CA392921CA5B6FB6915AD7991 /* AlamofireImage-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2B98C4192474DE911C838EDB1232E215 /* Pods-TradeMeBrowse-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4358876EF461C08ADE4BA7196C4136FA /* Pods-TradeMeBrowse-dummy.m */; };
+		2B98C4192474DE911C838EDB1232E215 /* Pods-TradeMeBrowse-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 979A3CD2C1510BA4FB75E73E737DA29A /* Pods-TradeMeBrowse-dummy.m */; };
 		3CE316FB1EA8B67619B8F1F69C2D7DEF /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBBB4C42F9F08D7B163E8717B0ABDAA /* DispatchQueue+Alamofire.swift */; };
 		44CBC92B0176FEA708D04B45119B6082 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7D6AD94AB0B3C44DAACEDD51C799F /* ImageCache.swift */; };
 		59A379D2EB8028CB07331F2E18B6FC40 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525D5D0FD88617AF1A8D9DB87E6EFE4 /* Request.swift */; };
@@ -24,12 +24,14 @@
 		71849B43F6D0AE75B95D6C1B25AB381F /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261D7984A170DFB31AC50DD2388B8490 /* Image.swift */; };
 		7911245AE5253829B72D17E63E96DE2E /* ImageFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DD38AF98BE5D41739F927325236E76 /* ImageFilter.swift */; };
 		8BB170EF376EB2F719D596A71E651FDF /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967D3B1C0B797D2563C555197DA18D49 /* NetworkReachabilityManager.swift */; };
+		9CAFF7AC0EFB5837D19677E398E8F111 /* Pods-TradeMeBrowseTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5DE126C1E51C7A2AB3D7BED16F0098 /* Pods-TradeMeBrowseTests-dummy.m */; };
 		A81C0471F24ED38B786B5207808E5A6D /* UIImageView+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B81F459E449B6600AE1EFE62467C82 /* UIImageView+AlamofireImage.swift */; };
 		ADFD6E86666C0B08FADC273153B5E9E3 /* AlamofireImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6164E423CC5DE94FB08554C5C4EA474 /* AlamofireImage-dummy.m */; };
 		B15AE25F2284AC71F87FAC7AAE5EA393 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC60E4864A044DDC85C48636DAC66ED1 /* Response.swift */; };
 		B6E153E514E37B85F25975A0E2B34FEC /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFF7830411CF31A3AD572A0BC9FCD7D /* ResponseSerialization.swift */; };
 		BEFECBD83E818B612CCCF26BF42C9A07 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE80A8EB70CDE787E4FE2D73429DD7 /* Alamofire.swift */; };
 		CA6BD52AB35379D1EC283FEC9152674D /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DA2915AE6139CBBB274B36B8278F3 /* Timeline.swift */; };
+		CFDC474AA35A2BAA0C8F6CE6A129953D /* Pods-TradeMeBrowseTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E29C9AF89F90570838D860181E98DE7C /* Pods-TradeMeBrowseTests-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DA77D388B857035F0EE2AB366D7D92D4 /* UIImage+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD5DE6E05C187F23D26F02CDF3C04E /* UIImage+AlamofireImage.swift */; };
 		E09041A10CE1271F31325AA84E3C6A33 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88AA0DE3C737EAF7BE967E672A0E0EF /* ServerTrustPolicy.swift */; };
 		E358EB7574B94EF931AF6B8561785CEB /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E28CF1A8205D45A9DAAB50D6D015B5 /* SessionDelegate.swift */; };
@@ -38,11 +40,32 @@
 		EE7A9102DB787F4E64A07A51B99B36DB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20072D2A5E9B71CBEB7BDB7F870354B9 /* Result.swift */; };
 		F22D5CE1470B5AB9301BAFC32F53DF0F /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 97E49F81540B495F59E68251E476288E /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FDD8E244ED9F942DC986D0D6724983DA /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDEB69E45E7E9791DBF91E6B4597E23 /* ImageDownloader.swift */; };
-		FFF0109CA07CBAD5FEC38A757DD64AC1 /* Pods-TradeMeBrowse-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 58E606BAC99C9D24913C2CD8D0B49F31 /* Pods-TradeMeBrowse-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FFF0109CA07CBAD5FEC38A757DD64AC1 /* Pods-TradeMeBrowse-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 916EB35F451B9681FD66819C28A460F9 /* Pods-TradeMeBrowse-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		21E59E688AC874E3AA843C3CE9C9AD12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1C6F2BD9BD6F075AA0A3CD9707ADF40;
+			remoteInfo = AlamofireImage;
+		};
 		5861E5CCA9EAFD496F1ACA3D2D44678E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08A16B7582F00884501F5E7A9B8E6FB4;
+			remoteInfo = Alamofire;
+		};
+		5D82E0F367CBED9E4150CF4A222BC726 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11BF19A19BD752441C7F32EE6E0693B0;
+			remoteInfo = "Pods-TradeMeBrowse";
+		};
+		70ADD7CF8F55F368E0DF84551F16DC50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -69,47 +92,57 @@
 		01B81F459E449B6600AE1EFE62467C82 /* UIImageView+AlamofireImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImageView+AlamofireImage.swift"; path = "Source/UIImageView+AlamofireImage.swift"; sourceTree = "<group>"; };
 		1DC3A636C1DEF1CE04D71FDCEFBD8786 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = Alamofire.modulemap; path = ../../Headers/Public/Alamofire/Alamofire.modulemap; sourceTree = "<group>"; };
 		20072D2A5E9B71CBEB7BDB7F870354B9 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
-		25F3ECD608849C4C446235D3062DE6E4 /* libAlamofire.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAlamofire.a; path = libAlamofire.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		207E695C1DA5BF7F875B6F14171A5810 /* libAlamofireImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAlamofireImage.a; path = libAlamofireImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		261D7984A170DFB31AC50DD2388B8490 /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Source/Image.swift; sourceTree = "<group>"; };
-		29E432DFB8669C7AFD977B2F12E01C5E /* Pods-TradeMeBrowse-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TradeMeBrowse-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2C74A9DE89044E4F967B975EFD40223F /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		2CE62C75A82194A62F32B1EE49805E67 /* Pods-TradeMeBrowseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TradeMeBrowseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		30BE80A8EB70CDE787E4FE2D73429DD7 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		33BFF340FDD5C25E09F34B9B75925C0D /* UIButton+AlamofireImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+AlamofireImage.swift"; path = "Source/UIButton+AlamofireImage.swift"; sourceTree = "<group>"; };
 		34E3B705BC79B9AD93B24C383E50775E /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
+		3E4845ABE60597A914F7004B2F93DBE6 /* Pods-TradeMeBrowse-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TradeMeBrowse-frameworks.sh"; sourceTree = "<group>"; };
 		3F2526A1122D447FDB30F42F62BBD800 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
-		410643BC8648672076D4FCD5FFFF555B /* Pods-TradeMeBrowse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TradeMeBrowse.release.xcconfig"; sourceTree = "<group>"; };
-		4358876EF461C08ADE4BA7196C4136FA /* Pods-TradeMeBrowse-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TradeMeBrowse-dummy.m"; sourceTree = "<group>"; };
-		45FE5E599851BA9C85D53602F032DC07 /* libAlamofireImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAlamofireImage.a; path = libAlamofireImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		46279D03F068CCE7C7B55BD038521580 /* Pods-TradeMeBrowse-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TradeMeBrowse-acknowledgements.plist"; sourceTree = "<group>"; };
+		4CDDAF365A908654F398EA6EE1503C06 /* Pods-TradeMeBrowseTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TradeMeBrowseTests-frameworks.sh"; sourceTree = "<group>"; };
 		4FAD5DE6E05C187F23D26F02CDF3C04E /* UIImage+AlamofireImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+AlamofireImage.swift"; path = "Source/UIImage+AlamofireImage.swift"; sourceTree = "<group>"; };
 		503DA2915AE6139CBBB274B36B8278F3 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
 		5525D5D0FD88617AF1A8D9DB87E6EFE4 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		580AF3936C52DAEE31A07CC7D96F8B9F /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
-		58E606BAC99C9D24913C2CD8D0B49F31 /* Pods-TradeMeBrowse-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TradeMeBrowse-umbrella.h"; sourceTree = "<group>"; };
+		5A5DE126C1E51C7A2AB3D7BED16F0098 /* Pods-TradeMeBrowseTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TradeMeBrowseTests-dummy.m"; sourceTree = "<group>"; };
+		5F50E63DEA0E15253D392450EA7320EF /* libAlamofire.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAlamofire.a; path = libAlamofire.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B91F9973206524FDEC17D494EBCDBD /* Pods-TradeMeBrowseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TradeMeBrowseTests.release.xcconfig"; sourceTree = "<group>"; };
+		6FD8C65A670AA3A43E87D429C8021EE7 /* Pods-TradeMeBrowse-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TradeMeBrowse-acknowledgements.plist"; sourceTree = "<group>"; };
+		751E1C6834721DFA56D936F51273F9A4 /* Pods-TradeMeBrowse-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TradeMeBrowse-resources.sh"; sourceTree = "<group>"; };
+		7F776E5D46E9523DB9063B6043D257BF /* Pods-TradeMeBrowseTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TradeMeBrowseTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		88DB76C4F566FEE7DCC136371FAB5006 /* Pods-TradeMeBrowse.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TradeMeBrowse.modulemap"; sourceTree = "<group>"; };
 		8A0ACD17C0D19D35C7AB25F135E3860F /* Request+AlamofireImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Request+AlamofireImage.swift"; path = "Source/Request+AlamofireImage.swift"; sourceTree = "<group>"; };
 		8BBBB4C42F9F08D7B163E8717B0ABDAA /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		8FFF7830411CF31A3AD572A0BC9FCD7D /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		916EB35F451B9681FD66819C28A460F9 /* Pods-TradeMeBrowse-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TradeMeBrowse-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		967D3B1C0B797D2563C555197DA18D49 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		979A3CD2C1510BA4FB75E73E737DA29A /* Pods-TradeMeBrowse-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TradeMeBrowse-dummy.m"; sourceTree = "<group>"; };
 		97E49F81540B495F59E68251E476288E /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Alamofire-umbrella.h"; path = "../../Headers/Public/Alamofire/Alamofire-umbrella.h"; sourceTree = "<group>"; };
-		9A7898378C3547C4176FE39A685F1F16 /* Pods-TradeMeBrowse-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TradeMeBrowse-frameworks.sh"; sourceTree = "<group>"; };
 		9F717CAE4179BFB953E6B8B1B77DFFD9 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		A2D828FF378DB9E0DCDF325983DF0A24 /* AlamofireImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AlamofireImage.xcconfig; sourceTree = "<group>"; };
 		A720FA746459F26FF70311433D91208C /* AlamofireImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = AlamofireImage.modulemap; path = ../../Headers/Public/AlamofireImage/AlamofireImage.modulemap; sourceTree = "<group>"; };
 		A89F56F0544541CD0425E8ECE3012A3F /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
 		AAD1589F623CD69ED7F375AAD361E739 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		AF87CCA9DADF33C3AB23BBC6D4650D97 /* Pods-TradeMeBrowseTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TradeMeBrowseTests-resources.sh"; sourceTree = "<group>"; };
 		B32F92ED51601E68CB0251ABDF04BBE2 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
 		B8E28CF1A8205D45A9DAAB50D6D015B5 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
+		BA9C5AE728864A7439931190332DBEE3 /* Pods-TradeMeBrowse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TradeMeBrowse.release.xcconfig"; sourceTree = "<group>"; };
 		BEB7D6AD94AB0B3C44DAACEDD51C799F /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Source/ImageCache.swift; sourceTree = "<group>"; };
+		C228B8E8BD75DE7C68BDDFFFDE7F9FE9 /* Pods-TradeMeBrowse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TradeMeBrowse.debug.xcconfig"; sourceTree = "<group>"; };
 		C5DD38AF98BE5D41739F927325236E76 /* ImageFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageFilter.swift; path = Source/ImageFilter.swift; sourceTree = "<group>"; };
-		C6091B0B6B296458B778B2B877EC69C5 /* Pods-TradeMeBrowse-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TradeMeBrowse-resources.sh"; sourceTree = "<group>"; };
-		CCEFA129BC617D94060D86FDBEA55F66 /* Pods-TradeMeBrowse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TradeMeBrowse.debug.xcconfig"; sourceTree = "<group>"; };
+		C7F4D38E1B75BBC5715A7107C27F97D0 /* Pods-TradeMeBrowseTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TradeMeBrowseTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CAE82E0F4B483438D706AB981171BF59 /* libPods-TradeMeBrowse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-TradeMeBrowse.a"; path = "libPods-TradeMeBrowse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D58D0F8E8EBB6290E8757AFC3AFB1A19 /* AlamofireImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AlamofireImage-prefix.pch"; sourceTree = "<group>"; };
 		D9E01B57C4E1E6D0C42C7E95706CEFFE /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		E054194864619356E6AF13E0BA044F7B /* Pods-TradeMeBrowse.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TradeMeBrowse.modulemap"; sourceTree = "<group>"; };
-		E5F5EA2B5BDA41EB733673E8D87122DD /* libPods-TradeMeBrowse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-TradeMeBrowse.a"; path = "libPods-TradeMeBrowse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBDB7F7C0ECE15325265C060C44D53FE /* Pods-TradeMeBrowse-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TradeMeBrowse-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E29C9AF89F90570838D860181E98DE7C /* Pods-TradeMeBrowseTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TradeMeBrowseTests-umbrella.h"; sourceTree = "<group>"; };
 		E6164E423CC5DE94FB08554C5C4EA474 /* AlamofireImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AlamofireImage-dummy.m"; sourceTree = "<group>"; };
+		E693982D89580DB01D07DA0AA8C3910E /* Pods-TradeMeBrowseTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TradeMeBrowseTests.modulemap"; sourceTree = "<group>"; };
 		EC60E4864A044DDC85C48636DAC66ED1 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		EE43B7D2CB48E769EE4C3CE22143F1F0 /* libPods-TradeMeBrowseTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-TradeMeBrowseTests.a"; path = "libPods-TradeMeBrowseTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE66FF1E415DAE39BC659F4827B05272 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		EEDEB69E45E7E9791DBF91E6B4597E23 /* ImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = Source/ImageDownloader.swift; sourceTree = "<group>"; };
 		EFA9DBCBC6EF8B5492D43817656236EB /* AFIError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFIError.swift; path = Source/AFIError.swift; sourceTree = "<group>"; };
@@ -139,6 +172,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E16DD736FB525B289D19E58FFEE04162 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -162,29 +202,13 @@
 			path = "../Target Support Files/Alamofire";
 			sourceTree = "<group>";
 		};
-		2480C82839E717A99CCFD73818FC40D4 /* Targets Support Files */ = {
+		413A73AEDB1FB2DC1F8C46758B2C5FF3 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				49270843957919AFDA7E84487684D145 /* Pods-TradeMeBrowse */,
+				F394F30D36DBA3B717F270928EBC134D /* Pods-TradeMeBrowse */,
+				62ABEF15A8C2C8BCBA313A180DC1D71D /* Pods-TradeMeBrowseTests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		49270843957919AFDA7E84487684D145 /* Pods-TradeMeBrowse */ = {
-			isa = PBXGroup;
-			children = (
-				E054194864619356E6AF13E0BA044F7B /* Pods-TradeMeBrowse.modulemap */,
-				29E432DFB8669C7AFD977B2F12E01C5E /* Pods-TradeMeBrowse-acknowledgements.markdown */,
-				46279D03F068CCE7C7B55BD038521580 /* Pods-TradeMeBrowse-acknowledgements.plist */,
-				4358876EF461C08ADE4BA7196C4136FA /* Pods-TradeMeBrowse-dummy.m */,
-				9A7898378C3547C4176FE39A685F1F16 /* Pods-TradeMeBrowse-frameworks.sh */,
-				C6091B0B6B296458B778B2B877EC69C5 /* Pods-TradeMeBrowse-resources.sh */,
-				58E606BAC99C9D24913C2CD8D0B49F31 /* Pods-TradeMeBrowse-umbrella.h */,
-				CCEFA129BC617D94060D86FDBEA55F66 /* Pods-TradeMeBrowse.debug.xcconfig */,
-				410643BC8648672076D4FCD5FFFF555B /* Pods-TradeMeBrowse.release.xcconfig */,
-			);
-			name = "Pods-TradeMeBrowse";
-			path = "Target Support Files/Pods-TradeMeBrowse";
 			sourceTree = "<group>";
 		};
 		5BB6AC797F72CDADDB5BC92A6DB66D07 /* Support Files */ = {
@@ -198,6 +222,23 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/AlamofireImage";
+			sourceTree = "<group>";
+		};
+		62ABEF15A8C2C8BCBA313A180DC1D71D /* Pods-TradeMeBrowseTests */ = {
+			isa = PBXGroup;
+			children = (
+				E693982D89580DB01D07DA0AA8C3910E /* Pods-TradeMeBrowseTests.modulemap */,
+				C7F4D38E1B75BBC5715A7107C27F97D0 /* Pods-TradeMeBrowseTests-acknowledgements.markdown */,
+				7F776E5D46E9523DB9063B6043D257BF /* Pods-TradeMeBrowseTests-acknowledgements.plist */,
+				5A5DE126C1E51C7A2AB3D7BED16F0098 /* Pods-TradeMeBrowseTests-dummy.m */,
+				4CDDAF365A908654F398EA6EE1503C06 /* Pods-TradeMeBrowseTests-frameworks.sh */,
+				AF87CCA9DADF33C3AB23BBC6D4650D97 /* Pods-TradeMeBrowseTests-resources.sh */,
+				E29C9AF89F90570838D860181E98DE7C /* Pods-TradeMeBrowseTests-umbrella.h */,
+				2CE62C75A82194A62F32B1EE49805E67 /* Pods-TradeMeBrowseTests.debug.xcconfig */,
+				65B91F9973206524FDEC17D494EBCDBD /* Pods-TradeMeBrowseTests.release.xcconfig */,
+			);
+			name = "Pods-TradeMeBrowseTests";
+			path = "Target Support Files/Pods-TradeMeBrowseTests";
 			sourceTree = "<group>";
 		};
 		646906999AC75BCC837496F3F8B0E83B /* Alamofire */ = {
@@ -241,8 +282,8 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
 				6FF3CE06F7D89F16588F3A74B93F1B66 /* Pods */,
-				CE256701110CB783475E0C4653C05863 /* Products */,
-				2480C82839E717A99CCFD73818FC40D4 /* Targets Support Files */,
+				B78B9B2C0656E852B073AA8038E7AAEE /* Products */,
+				413A73AEDB1FB2DC1F8C46758B2C5FF3 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -264,14 +305,32 @@
 			path = AlamofireImage;
 			sourceTree = "<group>";
 		};
-		CE256701110CB783475E0C4653C05863 /* Products */ = {
+		B78B9B2C0656E852B073AA8038E7AAEE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				25F3ECD608849C4C446235D3062DE6E4 /* libAlamofire.a */,
-				45FE5E599851BA9C85D53602F032DC07 /* libAlamofireImage.a */,
-				E5F5EA2B5BDA41EB733673E8D87122DD /* libPods-TradeMeBrowse.a */,
+				5F50E63DEA0E15253D392450EA7320EF /* libAlamofire.a */,
+				207E695C1DA5BF7F875B6F14171A5810 /* libAlamofireImage.a */,
+				CAE82E0F4B483438D706AB981171BF59 /* libPods-TradeMeBrowse.a */,
+				EE43B7D2CB48E769EE4C3CE22143F1F0 /* libPods-TradeMeBrowseTests.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F394F30D36DBA3B717F270928EBC134D /* Pods-TradeMeBrowse */ = {
+			isa = PBXGroup;
+			children = (
+				88DB76C4F566FEE7DCC136371FAB5006 /* Pods-TradeMeBrowse.modulemap */,
+				DBDB7F7C0ECE15325265C060C44D53FE /* Pods-TradeMeBrowse-acknowledgements.markdown */,
+				6FD8C65A670AA3A43E87D429C8021EE7 /* Pods-TradeMeBrowse-acknowledgements.plist */,
+				979A3CD2C1510BA4FB75E73E737DA29A /* Pods-TradeMeBrowse-dummy.m */,
+				3E4845ABE60597A914F7004B2F93DBE6 /* Pods-TradeMeBrowse-frameworks.sh */,
+				751E1C6834721DFA56D936F51273F9A4 /* Pods-TradeMeBrowse-resources.sh */,
+				916EB35F451B9681FD66819C28A460F9 /* Pods-TradeMeBrowse-umbrella.h */,
+				C228B8E8BD75DE7C68BDDFFFDE7F9FE9 /* Pods-TradeMeBrowse.debug.xcconfig */,
+				BA9C5AE728864A7439931190332DBEE3 /* Pods-TradeMeBrowse.release.xcconfig */,
+			);
+			name = "Pods-TradeMeBrowse";
+			path = "Target Support Files/Pods-TradeMeBrowse";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +341,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				281D6E21757495CDC7A208C41DA3B93A /* AlamofireImage-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85A0884C69A68AE12339698A46ACDC27 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFDC474AA35A2BAA0C8F6CE6A129953D /* Pods-TradeMeBrowseTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +386,7 @@
 			);
 			name = Alamofire;
 			productName = Alamofire;
-			productReference = 25F3ECD608849C4C446235D3062DE6E4 /* libAlamofire.a */;
+			productReference = 5F50E63DEA0E15253D392450EA7320EF /* libAlamofire.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		11BF19A19BD752441C7F32EE6E0693B0 /* Pods-TradeMeBrowse */ = {
@@ -338,7 +405,27 @@
 			);
 			name = "Pods-TradeMeBrowse";
 			productName = "Pods-TradeMeBrowse";
-			productReference = E5F5EA2B5BDA41EB733673E8D87122DD /* libPods-TradeMeBrowse.a */;
+			productReference = CAE82E0F4B483438D706AB981171BF59 /* libPods-TradeMeBrowse.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		92B158D8E37C665C1399CFD8516ED0F1 /* Pods-TradeMeBrowseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8031E8B2705CFF31EE371E4A75BA05D9 /* Build configuration list for PBXNativeTarget "Pods-TradeMeBrowseTests" */;
+			buildPhases = (
+				85A0884C69A68AE12339698A46ACDC27 /* Headers */,
+				99CDF0A124FD678C78CDA9AE20C5A034 /* Sources */,
+				E16DD736FB525B289D19E58FFEE04162 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				70B29D1F60AD91C83100C3EB5BBA8C41 /* PBXTargetDependency */,
+				742A76AD390960E0FFB31EBA39BEAE3F /* PBXTargetDependency */,
+				87ABCAEA998B9F47D522E5B675DDA262 /* PBXTargetDependency */,
+			);
+			name = "Pods-TradeMeBrowseTests";
+			productName = "Pods-TradeMeBrowseTests";
+			productReference = EE43B7D2CB48E769EE4C3CE22143F1F0 /* libPods-TradeMeBrowseTests.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		B1C6F2BD9BD6F075AA0A3CD9707ADF40 /* AlamofireImage */ = {
@@ -357,7 +444,7 @@
 			);
 			name = AlamofireImage;
 			productName = AlamofireImage;
-			productReference = 45FE5E599851BA9C85D53602F032DC07 /* libAlamofireImage.a */;
+			productReference = 207E695C1DA5BF7F875B6F14171A5810 /* libAlamofireImage.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -377,13 +464,14 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = CE256701110CB783475E0C4653C05863 /* Products */;
+			productRefGroup = B78B9B2C0656E852B073AA8038E7AAEE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				08A16B7582F00884501F5E7A9B8E6FB4 /* Alamofire */,
 				B1C6F2BD9BD6F075AA0A3CD9707ADF40 /* AlamofireImage */,
 				11BF19A19BD752441C7F32EE6E0693B0 /* Pods-TradeMeBrowse */,
+				92B158D8E37C665C1399CFD8516ED0F1 /* Pods-TradeMeBrowseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -484,6 +572,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		99CDF0A124FD678C78CDA9AE20C5A034 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CAFF7AC0EFB5837D19677E398E8F111 /* Pods-TradeMeBrowseTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6B535C72D5D65912E1B49CFE8FFF749 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,6 +602,24 @@
 			name = AlamofireImage;
 			target = B1C6F2BD9BD6F075AA0A3CD9707ADF40 /* AlamofireImage */;
 			targetProxy = DA81AB89D5218B4E292132359D48F8C7 /* PBXContainerItemProxy */;
+		};
+		70B29D1F60AD91C83100C3EB5BBA8C41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 08A16B7582F00884501F5E7A9B8E6FB4 /* Alamofire */;
+			targetProxy = 70ADD7CF8F55F368E0DF84551F16DC50 /* PBXContainerItemProxy */;
+		};
+		742A76AD390960E0FFB31EBA39BEAE3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AlamofireImage;
+			target = B1C6F2BD9BD6F075AA0A3CD9707ADF40 /* AlamofireImage */;
+			targetProxy = 21E59E688AC874E3AA843C3CE9C9AD12 /* PBXContainerItemProxy */;
+		};
+		87ABCAEA998B9F47D522E5B675DDA262 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-TradeMeBrowse";
+			target = 11BF19A19BD752441C7F32EE6E0693B0 /* Pods-TradeMeBrowse */;
+			targetProxy = 5D82E0F367CBED9E4150CF4A222BC726 /* PBXContainerItemProxy */;
 		};
 		87DD51B7364BCD7D86049AB854A162CA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -655,6 +769,31 @@
 			};
 			name = Release;
 		};
+		7DC375B19034319C83D9F7A1171996BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CE62C75A82194A62F32B1EE49805E67 /* Pods-TradeMeBrowseTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TradeMeBrowseTests/Pods-TradeMeBrowseTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		85ED3013A635C27F8B7FAF51362B108C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -721,7 +860,7 @@
 		};
 		BD7C2969F0098595293C124A076DBF4F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CCEFA129BC617D94060D86FDBEA55F66 /* Pods-TradeMeBrowse.debug.xcconfig */;
+			baseConfigurationReference = C228B8E8BD75DE7C68BDDFFFDE7F9FE9 /* Pods-TradeMeBrowse.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -743,6 +882,32 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
+		};
+		C5AEBEDFA0101A5DBB29C33B606F79BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65B91F9973206524FDEC17D494EBCDBD /* Pods-TradeMeBrowseTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TradeMeBrowseTests/Pods-TradeMeBrowseTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
 		};
 		D8DDC1F42E7ACE4D7D5B95BB98818235 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -774,7 +939,7 @@
 		};
 		DA82B1A1A7C48E16DE32DD92622DAC3D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 410643BC8648672076D4FCD5FFFF555B /* Pods-TradeMeBrowse.release.xcconfig */;
+			baseConfigurationReference = BA9C5AE728864A7439931190332DBEE3 /* Pods-TradeMeBrowse.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -824,6 +989,15 @@
 			buildConfigurations = (
 				20378E85E280D0852810438858F72E29 /* Debug */,
 				D8DDC1F42E7ACE4D7D5B95BB98818235 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8031E8B2705CFF31EE371E4A75BA05D9 /* Build configuration list for PBXNativeTarget "Pods-TradeMeBrowseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DC375B19034319C83D9F7A1171996BD /* Debug */,
+				C5AEBEDFA0101A5DBB29C33B606F79BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

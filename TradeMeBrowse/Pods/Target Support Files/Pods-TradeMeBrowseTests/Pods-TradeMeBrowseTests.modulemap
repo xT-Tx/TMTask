@@ -1,0 +1,6 @@
+module Pods_TradeMeBrowseTests {
+  umbrella header "Pods-TradeMeBrowseTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

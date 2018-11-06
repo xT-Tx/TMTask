@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53B60C627911E916EEE7FCB8 /* libPods-TradeMeBrowse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBB092921917E0F00213185 /* libPods-TradeMeBrowse.a */; };
 		664A5FFB02BFF9A94A26BB4F /* libPods-TradeMeBrowse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC471FBE42AEE4F9BF044B43 /* libPods-TradeMeBrowse.a */; };
+		6B342E4407C7C59BDB0CCD02 /* libPods-TradeMeBrowseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 627F8D42D454B52E23537ECB /* libPods-TradeMeBrowseTests.a */; };
 		9C2FF364218E765E0098072B /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2FF363218E765E0098072B /* ListingViewController.swift */; };
 		9C2FF367218E92030098072B /* ListDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2FF365218E92030098072B /* ListDetailCell.swift */; };
 		9C2FF368218E92030098072B /* ListDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C2FF366218E92030098072B /* ListDetailCell.xib */; };
@@ -23,10 +25,25 @@
 		9C9EEFA7218D8A7E00841A98 /* ContentLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9EEFA6218D8A7E00841A98 /* ContentLayout.swift */; };
 		9C9EEFAD218DBF3100841A98 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C9EEFAC218DBF3100841A98 /* CategoryCell.xib */; };
 		9C9EEFAF218DC3FF00841A98 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9EEFAE218DC3FF00841A98 /* ModelManager.swift */; };
+		9CBB090721915A3300213185 /* ItemDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB090621915A3300213185 /* ItemDetailsModel.swift */; };
+		9CBB091A219167D200213185 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB0919219167D200213185 /* DetailsViewController.swift */; };
+		9CBB092221917DF200213185 /* TradeMeBrowseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB092121917DF200213185 /* TradeMeBrowseTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9CBB092421917DF200213185 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C9EEF78218D418700841A98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C9EEF7F218D418700841A98;
+			remoteInfo = TradeMeBrowse;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		627F8D42D454B52E23537ECB /* libPods-TradeMeBrowseTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TradeMeBrowseTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67352640E3FF050EC551E12F /* Pods-TradeMeBrowse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeMeBrowse.release.xcconfig"; path = "Pods/Target Support Files/Pods-TradeMeBrowse/Pods-TradeMeBrowse.release.xcconfig"; sourceTree = "<group>"; };
+		7491FA24D5411014357FD67B /* Pods-TradeMeBrowseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeMeBrowseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TradeMeBrowseTests/Pods-TradeMeBrowseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C2FF363218E765E0098072B /* ListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
 		9C2FF365218E92030098072B /* ListDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCell.swift; sourceTree = "<group>"; };
 		9C2FF366218E92030098072B /* ListDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListDetailCell.xib; sourceTree = "<group>"; };
@@ -44,6 +61,18 @@
 		9C9EEFA6218D8A7E00841A98 /* ContentLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLayout.swift; sourceTree = "<group>"; };
 		9C9EEFAC218DBF3100841A98 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		9C9EEFAE218DC3FF00841A98 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		9CBB090621915A3300213185 /* ItemDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsModel.swift; sourceTree = "<group>"; };
+		9CBB090821915A5200213185 /* ModelManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManagerTests.swift; sourceTree = "<group>"; };
+		9CBB091021915BFA00213185 /* TradeMeBrowseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeMeBrowseTests.swift; sourceTree = "<group>"; };
+		9CBB091221915BFA00213185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CBB0919219167D200213185 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		9CBB091F21917DF200213185 /* TradeMeBrowseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradeMeBrowseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CBB092121917DF200213185 /* TradeMeBrowseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeMeBrowseTests.swift; sourceTree = "<group>"; };
+		9CBB092321917DF200213185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CBB092921917E0F00213185 /* libPods-TradeMeBrowse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-TradeMeBrowse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CBB092B21917EC300213185 /* libAlamofire.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAlamofire.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CBB092D2191804B00213185 /* libAlamofireImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAlamofireImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C67AF7E2D03166946695ED /* Pods-TradeMeBrowseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeMeBrowseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TradeMeBrowseTests/Pods-TradeMeBrowseTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC471FBE42AEE4F9BF044B43 /* libPods-TradeMeBrowse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TradeMeBrowse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F6206FE8ACB29464C90D51 /* Pods-TradeMeBrowse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeMeBrowse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TradeMeBrowse/Pods-TradeMeBrowse.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +83,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				664A5FFB02BFF9A94A26BB4F /* libPods-TradeMeBrowse.a in Frameworks */,
+				53B60C627911E916EEE7FCB8 /* libPods-TradeMeBrowse.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CBB091C21917DF200213185 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B342E4407C7C59BDB0CCD02 /* libPods-TradeMeBrowseTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				9C9EEF82218D418700841A98 /* TradeMeBrowse */,
+				9CBB090F21915BFA00213185 /* TradeMeBrowseTests */,
+				9CBB092021917DF200213185 /* TradeMeBrowseTests */,
 				9C9EEF81218D418700841A98 /* Products */,
 				C651BDE842773720024AC52C /* Pods */,
 				C8C4D58AE09AD5BCE622D20F /* Frameworks */,
@@ -74,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				9C9EEF80218D418700841A98 /* TradeMeBrowse.app */,
+				9CBB091F21917DF200213185 /* TradeMeBrowseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,7 +124,6 @@
 			children = (
 				9C9EEF97218D694D00841A98 /* Model */,
 				9C9EEF9B218D6AC800841A98 /* UI */,
-				9C9EEF9A218D6ABD00841A98 /* Test */,
 				9C9EEF83218D418700841A98 /* AppDelegate.swift */,
 				9C9EEF8F218D418900841A98 /* Info.plist */,
 				9C9EEF95218D490600841A98 /* Script.sh */,
@@ -97,15 +137,9 @@
 				9C9EEFAE218DC3FF00841A98 /* ModelManager.swift */,
 				9C9EEF98218D697A00841A98 /* CategoryModel.swift */,
 				9C9EEF9C218D7BF800841A98 /* ListingModel.swift */,
+				9CBB090621915A3300213185 /* ItemDetailsModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		9C9EEF9A218D6ABD00841A98 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Test;
 			sourceTree = "<group>";
 		};
 		9C9EEF9B218D6AC800841A98 /* UI */ = {
@@ -113,6 +147,7 @@
 			children = (
 				9C9EEFA0218D838A00841A98 /* HomeViewController.swift */,
 				9C2FF363218E765E0098072B /* ListingViewController.swift */,
+				9CBB0919219167D200213185 /* DetailsViewController.swift */,
 				9C9EEF87218D418700841A98 /* Main.storyboard */,
 				9C9EEFA6218D8A7E00841A98 /* ContentLayout.swift */,
 				9C9EEFA2218D85D900841A98 /* CategoryCell.swift */,
@@ -125,11 +160,32 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		9CBB090F21915BFA00213185 /* TradeMeBrowseTests */ = {
+			isa = PBXGroup;
+			children = (
+				9CBB090821915A5200213185 /* ModelManagerTests.swift */,
+				9CBB091021915BFA00213185 /* TradeMeBrowseTests.swift */,
+				9CBB091221915BFA00213185 /* Info.plist */,
+			);
+			path = TradeMeBrowseTests;
+			sourceTree = "<group>";
+		};
+		9CBB092021917DF200213185 /* TradeMeBrowseTests */ = {
+			isa = PBXGroup;
+			children = (
+				9CBB092121917DF200213185 /* TradeMeBrowseTests.swift */,
+				9CBB092321917DF200213185 /* Info.plist */,
+			);
+			path = TradeMeBrowseTests;
+			sourceTree = "<group>";
+		};
 		C651BDE842773720024AC52C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				F0F6206FE8ACB29464C90D51 /* Pods-TradeMeBrowse.debug.xcconfig */,
 				67352640E3FF050EC551E12F /* Pods-TradeMeBrowse.release.xcconfig */,
+				7491FA24D5411014357FD67B /* Pods-TradeMeBrowseTests.debug.xcconfig */,
+				D4C67AF7E2D03166946695ED /* Pods-TradeMeBrowseTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -137,7 +193,11 @@
 		C8C4D58AE09AD5BCE622D20F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CBB092D2191804B00213185 /* libAlamofireImage.a */,
+				9CBB092B21917EC300213185 /* libAlamofire.a */,
+				9CBB092921917E0F00213185 /* libPods-TradeMeBrowse.a */,
 				EC471FBE42AEE4F9BF044B43 /* libPods-TradeMeBrowse.a */,
+				627F8D42D454B52E23537ECB /* libPods-TradeMeBrowseTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,6 +223,25 @@
 			productReference = 9C9EEF80218D418700841A98 /* TradeMeBrowse.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9CBB091E21917DF200213185 /* TradeMeBrowseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CBB092621917DF200213185 /* Build configuration list for PBXNativeTarget "TradeMeBrowseTests" */;
+			buildPhases = (
+				D545D782C9B3B9C6D4EB30E4 /* [CP] Check Pods Manifest.lock */,
+				9CBB091B21917DF200213185 /* Sources */,
+				9CBB091C21917DF200213185 /* Frameworks */,
+				9CBB091D21917DF200213185 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9CBB092521917DF200213185 /* PBXTargetDependency */,
+			);
+			name = TradeMeBrowseTests;
+			productName = TradeMeBrowseTests;
+			productReference = 9CBB091F21917DF200213185 /* TradeMeBrowseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -175,6 +254,10 @@
 				TargetAttributes = {
 					9C9EEF7F218D418700841A98 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					9CBB091E21917DF200213185 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 9C9EEF7F218D418700841A98;
 					};
 				};
 			};
@@ -192,6 +275,7 @@
 			projectRoot = "";
 			targets = (
 				9C9EEF7F218D418700841A98 /* TradeMeBrowse */,
+				9CBB091E21917DF200213185 /* TradeMeBrowseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -207,6 +291,13 @@
 				9C9EEF89218D418700841A98 /* Main.storyboard in Resources */,
 				9C2FF368218E92030098072B /* ListDetailCell.xib in Resources */,
 				9C9EEF96218D490600841A98 /* Script.sh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CBB091D21917DF200213185 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +326,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D545D782C9B3B9C6D4EB30E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TradeMeBrowseTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -245,16 +358,34 @@
 				9C9EEFA7218D8A7E00841A98 /* ContentLayout.swift in Sources */,
 				9C9EEFAF218DC3FF00841A98 /* ModelManager.swift in Sources */,
 				9C9EEFA1218D838A00841A98 /* HomeViewController.swift in Sources */,
+				9CBB091A219167D200213185 /* DetailsViewController.swift in Sources */,
 				9C9EEF9D218D7BF800841A98 /* ListingModel.swift in Sources */,
 				9C2FF367218E92030098072B /* ListDetailCell.swift in Sources */,
 				9C9EEF99218D697A00841A98 /* CategoryModel.swift in Sources */,
 				9C9EEF84218D418700841A98 /* AppDelegate.swift in Sources */,
 				9C9EEFA4218D85D900841A98 /* CategoryCell.swift in Sources */,
 				9C2FF364218E765E0098072B /* ListingViewController.swift in Sources */,
+				9CBB090721915A3300213185 /* ItemDetailsModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CBB091B21917DF200213185 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CBB092221917DF200213185 /* TradeMeBrowseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9CBB092521917DF200213185 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C9EEF7F218D418700841A98 /* TradeMeBrowse */;
+			targetProxy = 9CBB092421917DF200213185 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9C9EEF87218D418700841A98 /* Main.storyboard */ = {
@@ -428,6 +559,46 @@
 			};
 			name = Release;
 		};
+		9CBB092721917DF200213185 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7491FA24D5411014357FD67B /* Pods-TradeMeBrowseTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TradeMeBrowseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nickjiang.TradeMeBrowseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TradeMeBrowse.app/TradeMeBrowse";
+			};
+			name = Debug;
+		};
+		9CBB092821917DF200213185 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4C67AF7E2D03166946695ED /* Pods-TradeMeBrowseTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TradeMeBrowseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nickjiang.TradeMeBrowseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TradeMeBrowse.app/TradeMeBrowse";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -445,6 +616,15 @@
 			buildConfigurations = (
 				9C9EEF93218D418900841A98 /* Debug */,
 				9C9EEF94218D418900841A98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CBB092621917DF200213185 /* Build configuration list for PBXNativeTarget "TradeMeBrowseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CBB092721917DF200213185 /* Debug */,
+				9CBB092821917DF200213185 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
