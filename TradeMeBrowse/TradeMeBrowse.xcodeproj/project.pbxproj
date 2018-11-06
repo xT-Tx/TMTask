@@ -62,9 +62,6 @@
 		9C9EEFAC218DBF3100841A98 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		9C9EEFAE218DC3FF00841A98 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		9CBB090621915A3300213185 /* ItemDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsModel.swift; sourceTree = "<group>"; };
-		9CBB090821915A5200213185 /* ModelManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManagerTests.swift; sourceTree = "<group>"; };
-		9CBB091021915BFA00213185 /* TradeMeBrowseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeMeBrowseTests.swift; sourceTree = "<group>"; };
-		9CBB091221915BFA00213185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CBB0919219167D200213185 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		9CBB091F21917DF200213185 /* TradeMeBrowseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradeMeBrowseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CBB092121917DF200213185 /* TradeMeBrowseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeMeBrowseTests.swift; sourceTree = "<group>"; };
@@ -102,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				9C9EEF82218D418700841A98 /* TradeMeBrowse */,
-				9CBB090F21915BFA00213185 /* TradeMeBrowseTests */,
 				9CBB092021917DF200213185 /* TradeMeBrowseTests */,
 				9C9EEF81218D418700841A98 /* Products */,
 				C651BDE842773720024AC52C /* Pods */,
@@ -158,16 +154,6 @@
 				9C9EEF8C218D418900841A98 /* LaunchScreen.storyboard */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		9CBB090F21915BFA00213185 /* TradeMeBrowseTests */ = {
-			isa = PBXGroup;
-			children = (
-				9CBB090821915A5200213185 /* ModelManagerTests.swift */,
-				9CBB091021915BFA00213185 /* TradeMeBrowseTests.swift */,
-				9CBB091221915BFA00213185 /* Info.plist */,
-			);
-			path = TradeMeBrowseTests;
 			sourceTree = "<group>";
 		};
 		9CBB092021917DF200213185 /* TradeMeBrowseTests */ = {

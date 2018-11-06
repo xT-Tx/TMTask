@@ -41,7 +41,6 @@ class HomeViewController: UIViewController {
             }
         })
     }
-
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -66,7 +65,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let nextVCIdentifier = "ListingViewController"
             let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: nextVCIdentifier) as! ListingViewController
             nextVC.parentCategory = selectedCategory
-            navigationController?.pushViewController(nextVC, animated: true)
+            
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                let navigationVC = UINavigationController(rootViewController: nextVC)
+                navigationVC.modalPresentationStyle = .formSheet
+                present(navigationVC, animated: true, completion: nil)
+            }
+            else {
+                navigationController?.pushViewController(nextVC, animated: true)
+            }
             return
         }
         
@@ -141,17 +148,26 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    var defaultSize: CGSize {
+        return CGSize(width: 150, height: 110)
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var size = CGSize.zero
-        
+        let scale = CGFloat(0.8)
+        var size = defaultSize
+        let margins = collectionView.bounds.size.width * ContentLayout.marginPercent * 2 + ContentLayout.columnSpace
+        if (size.width * 2 + margins) > collectionView.bounds.size.width {
+            size.width = (collectionView.bounds.size.width - margins) / 2
+        }
         let level = categories[indexPath.item].level
         switch level {
         case 1:
-            size = CGSize(width: 150, height: 110)
+            break
         case 2:
-            size = CGSize(width: 110, height: 90)
+            size.width *= scale
+            size.height *= scale
         case 3:
-            size = CGSize(width: 90, height: 60)
+            size.width *= scale * scale
+            size.height *= scale * scale
         default:
             size = CGSize(width: 70, height: 40)
         }

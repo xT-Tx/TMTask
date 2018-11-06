@@ -177,9 +177,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rPv-bJ-77D">
-                                        <rect key="frame" x="141" y="131" width="37" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rPv-bJ-77D">
+                                        <rect key="frame" x="149" y="182.5" width="37" height="37"/>
                                         <color key="color" red="0.97254901959999995" green="0.64705882349999999" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -193,15 +192,18 @@
                                     <constraint firstItem="cVz-QI-Yos" firstAttribute="top" secondItem="KuH-5h-dv2" secondAttribute="top" constant="20" id="FYQ-go-uRV"/>
                                     <constraint firstItem="nvV-3K-5ii" firstAttribute="top" secondItem="jpI-DZ-bS7" secondAttribute="bottom" constant="12" id="JuN-vV-KnS"/>
                                     <constraint firstItem="1Mj-R9-ZDI" firstAttribute="leading" secondItem="KuH-5h-dv2" secondAttribute="leading" constant="20" id="N8G-aH-sJQ"/>
+                                    <constraint firstItem="jpI-DZ-bS7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Mj-R9-ZDI" secondAttribute="trailing" constant="30" id="NJx-2h-R0v"/>
                                     <constraint firstItem="cVz-QI-Yos" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c1r-Aw-J6I" secondAttribute="trailing" constant="30" id="S07-cg-FbG"/>
                                     <constraint firstItem="nvV-3K-5ii" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ceo-yI-8Pt" secondAttribute="trailing" constant="30" id="ea2-G9-OS6"/>
                                     <constraint firstItem="c1r-Aw-J6I" firstAttribute="top" secondItem="KuH-5h-dv2" secondAttribute="top" constant="20" id="euV-fE-LQf"/>
                                     <constraint firstItem="1Mj-R9-ZDI" firstAttribute="top" secondItem="c1r-Aw-J6I" secondAttribute="bottom" constant="12" id="fKY-CG-kcu"/>
                                     <constraint firstItem="c1r-Aw-J6I" firstAttribute="leading" secondItem="KuH-5h-dv2" secondAttribute="leading" constant="20" id="fKg-IF-oEP"/>
+                                    <constraint firstItem="rPv-bJ-77D" firstAttribute="centerX" secondItem="KuH-5h-dv2" secondAttribute="centerX" id="fMk-0r-AYj"/>
                                     <constraint firstItem="nvV-3K-5ii" firstAttribute="trailing" secondItem="jpI-DZ-bS7" secondAttribute="trailing" id="mkb-Ev-jpg"/>
                                     <constraint firstItem="ceo-yI-8Pt" firstAttribute="top" secondItem="1Mj-R9-ZDI" secondAttribute="bottom" constant="12" id="oM7-x2-qNJ"/>
                                     <constraint firstAttribute="trailing" secondItem="cVz-QI-Yos" secondAttribute="trailing" constant="8" id="ps4-WL-4Q7"/>
                                     <constraint firstItem="cVz-QI-Yos" firstAttribute="width" secondItem="KuH-5h-dv2" secondAttribute="width" multiplier="0.6" id="v4H-YC-WAl"/>
+                                    <constraint firstItem="rPv-bJ-77D" firstAttribute="centerY" secondItem="KuH-5h-dv2" secondAttribute="centerY" id="yXW-MH-q9H"/>
                                 </constraints>
                             </view>
                         </subviews>

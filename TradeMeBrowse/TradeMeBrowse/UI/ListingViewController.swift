@@ -25,6 +25,13 @@ class ListingViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         fetchListings()
+
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeButtonTapped))
+        }
+    }
+    @objc func closeButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     func fetchListings() {
@@ -48,6 +55,11 @@ class ListingViewController: UIViewController {
                 }
             }
         })
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 }
 

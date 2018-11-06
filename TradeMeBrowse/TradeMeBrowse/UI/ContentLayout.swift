@@ -11,6 +11,8 @@ import UIKit
 class ContentLayout: UICollectionViewFlowLayout {
 
     static let marginPercent = CGFloat(0.05)
+    static let lineSpace = CGFloat(20)
+    static let columnSpace = CGFloat(20)
     
     private var itemsAttributes: [UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()
     private var cvContentSize = CGSize.zero
@@ -29,8 +31,8 @@ class ContentLayout: UICollectionViewFlowLayout {
         guard let cv = collectionView else { return }
         let margin = cv.frame.size.width * ContentLayout.marginPercent
         sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
-        minimumLineSpacing = 20
-        minimumInteritemSpacing = 20
+        minimumLineSpacing = ContentLayout.lineSpace
+        minimumInteritemSpacing = ContentLayout.columnSpace
         
         guard let dataSource = cv.dataSource else { return }
         guard let delegateFlowLayout = cv.delegate as? UICollectionViewDelegateFlowLayout else { return }
@@ -40,6 +42,7 @@ class ContentLayout: UICollectionViewFlowLayout {
         var cellWidth: CGFloat = 0
         var cellHeight: CGFloat = 0
         var prevSize = CGSize.zero
+        cvContentSize.width = cv.bounds.size.width
         for item in 0..<numberOfItems {
             let indexPath = IndexPath(item: item, section: 0)
             if let itemSize = delegateFlowLayout.collectionView?(cv, layout: self, sizeForItemAt: indexPath) {
@@ -47,8 +50,7 @@ class ContentLayout: UICollectionViewFlowLayout {
                 cellHeight = itemSize.height
                 
                 let attributes = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)
-                if xOffset + cellWidth + minimumInteritemSpacing > cv.bounds.size.width - margin || (prevSize != .zero && prevSize != itemSize) {
-                    cvContentSize.width = max(cvContentSize.width, xOffset)
+                if xOffset + cellWidth > cv.bounds.size.width - margin || (prevSize != .zero && prevSize != itemSize) {
                     xOffset = margin
                     yOffset += prevSize.height + minimumLineSpacing
                 }
