@@ -13,6 +13,17 @@ typealias JSONDict = Dictionary<String, Any>
 
 extension String {
     static let authorizationKey = "Authorization"
+    static let subcategoriesKey = "Subcategories"
+    static let nameKey          = "Name"
+    static let numberKey        = "Number"
+    static let pathKey          = "Path"
+    static let leafKey          = "IsLeaf"
+    static let totalCountKey    = "TotalCount"
+    static let listKey          = "List"
+    static let titleKey         = "Title"
+    static let listingIdKey     = "ListingId"
+    static let pictureHrefKey   = "PictureHref"
+    
 }
 
 enum ModelError: Error {
@@ -37,7 +48,7 @@ class ModelManager: NSObject {
             .responseJSON(queue: queue, completionHandler: { response in
                 guard response.result.isSuccess else { return }
                 guard let data = response.result.value as? JSONDict else { return }
-                if let subcategories = data["Subcategories"] as? Array<JSONDict> {
+                if let subcategories = data[.subcategoriesKey] as? Array<JSONDict> {
                     var models = [CategoryModel]()
                     subcategories.forEach {
                         models.append(self.transform($0, level: rootLevel+1))
@@ -49,20 +60,15 @@ class ModelManager: NSObject {
     
     /// transform raw data into a CategoryModel
     func transform(_ data: JSONDict, level: Int) -> CategoryModel {
-        guard let name = data["Name"] as? String,
-            let number = data["Number"] as? String,
-            let path = data["Path"] as? String,
-            let isLeaf = data["IsLeaf"] as? Bool
+        guard let name = data[.nameKey] as? String,
+            let number = data[.numberKey] as? String,
+            let path = data[.pathKey] as? String,
+            let isLeaf = data[.leafKey] as? Bool
             else {
                 return CategoryModel(number: "", name: "", path: "")
         }
         let model = CategoryModel(number: number, name: name, path: path, isLeaf: isLeaf)
         model.level = level
-//        if !isLeaf {
-//            if let subcategories = data["Subcategories"] as? Array<JSONDict> {
-//                model.subCategories = subcategories
-//            }
-//        }
         return model
     }
     
@@ -75,8 +81,8 @@ class ModelManager: NSObject {
             .responseJSON(queue: queue, completionHandler: { response in
                 guard response.result.isSuccess else { completion(Result.failure(ModelError.connectionFailed)); return }
                 guard let data = response.result.value as? JSONDict else { completion(Result.failure(ModelError.connectionFailed)); return }
-                guard let count = data["TotalCount"] as? Int, count > 0 else { completion(Result.failure(ModelError.emptyData)); return }
-                guard let list = data["List"] as? Array<JSONDict> else { completion(Result.failure(ModelError.connectionFailed)); return }
+                guard let count = data[.totalCountKey] as? Int, count > 0 else { completion(Result.failure(ModelError.emptyData)); return }
+                guard let list = data[.listKey] as? Array<JSONDict> else { completion(Result.failure(ModelError.connectionFailed)); return }
                 
                 var models = [ListingModel]()
                 for index in 0..<min(count, 20) {
@@ -107,9 +113,9 @@ class ModelManager: NSObject {
     
     /// transform raw data into a ListingModel
     private func transformList(_ json: Dictionary<String, Any>) -> ListingModel {
-        guard let name = json["Title"] as? String,
-            let id = json["ListingId"] as? Int else { return ListingModel(name: "", id: 0, photoURL: nil) }
-        let photoURL = json["PictureHref"] as? String
+        guard let name = json[.titleKey] as? String,
+            let id = json[.listingIdKey] as? Int else { return ListingModel(name: "", id: 0, photoURL: nil) }
+        let photoURL = json[.pictureHrefKey] as? String
         let model = ListingModel(name: name, id: id, photoURL: photoURL)
         return model
     }

@@ -53,9 +53,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: HomeViewController.cellIdentifier, for: indexPath) as? CategoryCell {
             let category = categories[indexPath.item]
             cell.name.text = category.name
+            cell.level = category.level
             return cell
         }
-        assert(true, "There must something wrong!")
+        assert(true, "There must be something wrong!")
         return UICollectionViewCell()
     }
     
@@ -103,7 +104,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 
                 let firstDeletedItem = deleteItems.first?.item ?? Int.max
                 let updatedIndex = firstDeletedItem < indexPath.item ? indexPath.item - deleteItems.count : indexPath.item
-                if strongSelf.selectedCellPath != nil && updatedIndex != strongSelf.selectedCellPath!.item {
+                if !selectedCategory.isExpanded && strongSelf.selectedCellPath != nil && updatedIndex != strongSelf.selectedCellPath!.item {
                     var index = updatedIndex + 1
                     for category in sub {
                         strongSelf.categories.insert(category, at: index)
@@ -126,11 +127,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 strongSelf.selectedCellPath = indexPath
             }
             
+            if let layout = collectionView.collectionViewLayout as? ContentLayout {
+                layout.collectionViewContentChanged()
+            }
+            
             strongSelf.expandedCategoryLevel = (strongSelf.selectedCellPath == nil ? selectedCategory.level - 1 : selectedCategory.level)
             collectionView.deleteItems(at: deleteItems)
             collectionView.insertItems(at: insertItems)
             
             }, completion: nil)
+        selectedCategory.isExpanded = !selectedCategory.isExpanded
     }
 }
 
@@ -148,12 +154,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             size = CGSize(width: 90, height: 60)
         default:
             size = CGSize(width: 70, height: 40)
-        }
-        if let path = selectedCellPath {
-            if path.item == indexPath.item {
-                let width = collectionView.bounds.size.width * (1 - 2 * ContentLayout.marginPercent)
-                size.width = width
-            }
         }
         return size
     }

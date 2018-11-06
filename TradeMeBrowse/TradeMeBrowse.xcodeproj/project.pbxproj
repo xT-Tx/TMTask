@@ -23,7 +23,6 @@
 		9C9EEFA7218D8A7E00841A98 /* ContentLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9EEFA6218D8A7E00841A98 /* ContentLayout.swift */; };
 		9C9EEFAD218DBF3100841A98 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C9EEFAC218DBF3100841A98 /* CategoryCell.xib */; };
 		9C9EEFAF218DC3FF00841A98 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9EEFAE218DC3FF00841A98 /* ModelManager.swift */; };
-		9CC52A88218EA18900E40E38 /* ListFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC52A87218EA18900E40E38 /* ListFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +44,6 @@
 		9C9EEFA6218D8A7E00841A98 /* ContentLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLayout.swift; sourceTree = "<group>"; };
 		9C9EEFAC218DBF3100841A98 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		9C9EEFAE218DC3FF00841A98 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
-		9CC52A87218EA18900E40E38 /* ListFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFlowLayout.swift; sourceTree = "<group>"; };
 		EC471FBE42AEE4F9BF044B43 /* libPods-TradeMeBrowse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TradeMeBrowse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F6206FE8ACB29464C90D51 /* Pods-TradeMeBrowse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeMeBrowse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TradeMeBrowse/Pods-TradeMeBrowse.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,7 +115,6 @@
 				9C2FF363218E765E0098072B /* ListingViewController.swift */,
 				9C9EEF87218D418700841A98 /* Main.storyboard */,
 				9C9EEFA6218D8A7E00841A98 /* ContentLayout.swift */,
-				9CC52A87218EA18900E40E38 /* ListFlowLayout.swift */,
 				9C9EEFA2218D85D900841A98 /* CategoryCell.swift */,
 				9C9EEFAC218DBF3100841A98 /* CategoryCell.xib */,
 				9C2FF365218E92030098072B /* ListDetailCell.swift */,
@@ -246,7 +243,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C9EEFA7218D8A7E00841A98 /* ContentLayout.swift in Sources */,
-				9CC52A88218EA18900E40E38 /* ListFlowLayout.swift in Sources */,
 				9C9EEFAF218DC3FF00841A98 /* ModelManager.swift in Sources */,
 				9C9EEFA1218D838A00841A98 /* HomeViewController.swift in Sources */,
 				9C9EEF9D218D7BF800841A98 /* ListingModel.swift in Sources */,

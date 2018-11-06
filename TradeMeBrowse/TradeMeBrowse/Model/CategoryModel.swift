@@ -16,7 +16,8 @@ class CategoryModel {
     
     var level = 0
     var subCategories: Array<CategoryModel>?
-//    var list: Array<ListingModel>?
+
+    var isExpanded = false
     
     init(number: String, name: String, path: String, isLeaf: Bool = false) {
         self.number = number
