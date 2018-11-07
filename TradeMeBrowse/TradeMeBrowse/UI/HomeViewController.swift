@@ -170,30 +170,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    var defaultSize: CGSize {
-        return CGSize(width: 150, height: 110)
-    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let scale = CGFloat(0.8)
-        var size = defaultSize
-        let margins = collectionView.bounds.size.width * ContentLayout.marginPercent * 2 + ContentLayout.columnSpace
-        if (size.width * 2 + margins) > collectionView.bounds.size.width {
-            size.width = (collectionView.bounds.size.width - margins) / 2
-        }
-        let level = categories[indexPath.item].level
-        switch level {
-        case 1:
-            break
-        case 2:
-            size.width *= scale
-            size.height *= scale
-        case 3:
-            size.width *= scale * scale
-            size.height *= scale * scale
-        default:
-            size.width *= scale * scale
-            size.height = 40
-        }
+        var size = CGSize(width: collectionView.bounds.size.width * (1 - 2*ContentLayout.marginPercent), height: 70)
+        let level = CGFloat(categories[indexPath.item].level)
+        size.width = size.width - collectionView.bounds.size.width * ContentLayout.marginPercent * (level - 1)
         return size
     }
 }

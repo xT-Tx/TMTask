@@ -50,15 +50,12 @@ class ContentLayout: UICollectionViewFlowLayout {
                 cellHeight = itemSize.height
                 
                 let attributes = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)
-                if xOffset + cellWidth > cv.bounds.size.width - margin || (prevSize != .zero && prevSize != itemSize) {
-                    xOffset = margin
-                    yOffset += prevSize.height + minimumLineSpacing
-                }
+                xOffset = cv.bounds.size.width - margin - cellWidth
+                yOffset += prevSize.height + minimumLineSpacing
+
                 attributes.frame = CGRect(x: xOffset, y: yOffset, width: cellWidth, height: cellHeight)
                 itemsAttributes.append(attributes)
-                
-                //increase xOffset for next cell.
-                xOffset += cellWidth + minimumInteritemSpacing
+
                 prevSize = itemSize
             }
         }
