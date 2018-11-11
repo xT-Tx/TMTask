@@ -14,9 +14,8 @@ class HomeViewController: UIViewController {
     @IBOutlet fileprivate var activityIndicator: UIActivityIndicatorView!
     
     static fileprivate let cellIdentifier = "CategoryCell"
-    fileprivate var categories: [CategoryModel] = [CategoryModel]()
-    fileprivate var selectedCellPath: IndexPath? // keep a reference of selected cell
-    fileprivate var expandedCategoryLevel = 0 // we can see all main categoies by default
+
+    fileprivate let categoryStore = CategoryStore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,41 +26,36 @@ class HomeViewController: UIViewController {
         collectionView.delegate = self
         
         collectionView.collectionViewLayout = ContentLayout()
-        activityIndicator.startAnimating()
-        fetchTopCategory()
-    }
-    
-    fileprivate func fetchTopCategory() {
-        ModelManager.shared.requestCategory("0", rootLevel: 0, depth: 1, completion: {
-            result in
-            switch result {
-            case .success(let models):
-                self.categories = models
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                    self.activityIndicator.stopAnimating()
-                }
-            case .failure(let error):
+        let state = categoryStore.updateCategory(completion: {[weak self]
+            _, _ in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+                self?.activityIndicator.stopAnimating()
+            }
+        }, errorHandler: { [weak self]
+            error in
                 DispatchQueue.main.async {
                     if let modelError = error as? ModelError {
                         let alert = UIAlertController.createAlert(for: modelError)
-                        self.present(alert, animated: true, completion: nil)
+                        self?.present(alert, animated: true, completion: nil)
                     }
-                    self.activityIndicator.stopAnimating()
+                    self?.activityIndicator.stopAnimating()
                 }
-            }
         })
+        if state != .ready {
+            activityIndicator.startAnimating()
+        }
     }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        return categoryStore.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: HomeViewController.cellIdentifier, for: indexPath) as? CategoryCell {
-            let category = categories[indexPath.item]
+            let category = categoryStore.category(at: indexPath.item)
             cell.name.text = category.name
             cell.level = category.level
             return cell
@@ -71,7 +65,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedCategory = categories[indexPath.item]
+        let selectedCategory = categoryStore.category(at: indexPath.item)
         if selectedCategory.isLeaf {
             let nextVCIdentifier = "ListingViewController"
             let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: nextVCIdentifier) as! ListingViewController
@@ -88,91 +82,46 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return
         }
         
-        if let sub = selectedCategory.subCategories, sub.count > 0 {
-            performBatchUpdate(for: selectedCategory, at: indexPath)
-        }
-        else {
+        // not a leaf node. drill down in this category
+        let state = categoryStore.updateCategory(at: indexPath.item, completion: { [weak self]
+            deleteItems, insertItems in
+            DispatchQueue.main.async {
+                self?.collectionView.performBatchUpdates({
+                    if let layout = self?.collectionView.collectionViewLayout as? ContentLayout {
+                        layout.collectionViewContentChanged()
+                    }
+                    
+                    self?.collectionView.deleteItems(at: deleteItems)
+                    self?.collectionView.insertItems(at: insertItems)
+                    self?.activityIndicator.stopAnimating()
+                    self?.collectionView.isUserInteractionEnabled = true
+                }, completion: { _ in
+                    guard let first = insertItems.first else { return }
+                    self?.collectionView.scrollToItem(at: first, at: .centeredVertically, animated: true)
+                })
+            }
+            }, errorHandler: { [weak self]
+                error in
+                DispatchQueue.main.async {
+                    if let modelError = error as? ModelError {
+                        let alert = UIAlertController.createAlert(for: modelError)
+                        self?.present(alert, animated: true, completion: nil)
+                    }
+                    self?.activityIndicator.stopAnimating()
+                    self?.collectionView.isUserInteractionEnabled = true
+                }
+        })
+        if state != .ready {
             activityIndicator.startAnimating()
             collectionView.isUserInteractionEnabled = false
-            ModelManager.shared.requestCategory(selectedCategory.number, rootLevel: selectedCategory.level, depth: 1, completion: {
-                result in
-                switch result {
-                case .success(let models):
-                    selectedCategory.subCategories = models
-                    DispatchQueue.main.async {
-                        self.activityIndicator.stopAnimating()
-                        collectionView.isUserInteractionEnabled = true
-                        self.performBatchUpdate(for: selectedCategory, at: indexPath)
-                    }
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        if let modelError = error as? ModelError {
-                            let alert = UIAlertController.createAlert(for: modelError)
-                            self.present(alert, animated: true, completion: nil)
-                        }
-                        self.activityIndicator.stopAnimating()
-                    }
-                }
-            })
         }
-    }
-    
-    private func performBatchUpdate(for selectedCategory: CategoryModel, at indexPath: IndexPath) {
-        guard let sub = selectedCategory.subCategories, sub.count > 0 else { return }
-        collectionView.performBatchUpdates({ [weak self] in
-            guard let strongSelf = self else { return }
-            var deleteItems = [IndexPath]()
-            var insertItems = [IndexPath]()
-            if selectedCategory.level <= expandedCategoryLevel {
-                for index in (0...strongSelf.categories.count-1).reversed() {
-                    if strongSelf.categories[index].level > selectedCategory.level {
-                        strongSelf.categories.remove(at: index)
-                        deleteItems.append(IndexPath(item: index, section: 0))
-                    }
-                }
-                
-                let firstDeletedItem = deleteItems.first?.item ?? Int.max
-                let updatedIndex = firstDeletedItem < indexPath.item ? indexPath.item - deleteItems.count : indexPath.item
-                if !selectedCategory.isExpanded && strongSelf.selectedCellPath != nil && updatedIndex != strongSelf.selectedCellPath!.item {
-                    var index = updatedIndex + 1
-                    for category in sub {
-                        strongSelf.categories.insert(category, at: index)
-                        insertItems.append(IndexPath(item: index, section: 0))
-                        index += 1
-                    }
-                    strongSelf.selectedCellPath = IndexPath(item: updatedIndex, section: 0)
-                }
-                else {
-                    strongSelf.selectedCellPath = nil
-                }
-            }
-            else {
-                var index = indexPath.item + 1
-                for category in sub {
-                    strongSelf.categories.insert(category, at: index)
-                    index += 1
-                }
-                insertItems = Array(indexPath.item+1..<index).map { IndexPath(item: $0, section: 0) }
-                strongSelf.selectedCellPath = indexPath
-            }
-            
-            if let layout = collectionView.collectionViewLayout as? ContentLayout {
-                layout.collectionViewContentChanged()
-            }
-            
-            strongSelf.expandedCategoryLevel = (strongSelf.selectedCellPath == nil ? selectedCategory.level - 1 : selectedCategory.level)
-            collectionView.deleteItems(at: deleteItems)
-            collectionView.insertItems(at: insertItems)
-            
-            }, completion: nil)
-        selectedCategory.isExpanded = !selectedCategory.isExpanded
     }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var size = CGSize(width: collectionView.bounds.size.width * (1 - 2*ContentLayout.marginPercent), height: 70)
-        let level = CGFloat(categories[indexPath.item].level)
+        let level = CGFloat(categoryStore.category(at: indexPath.item).level)
         size.width = size.width - collectionView.bounds.size.width * ContentLayout.marginPercent * (level - 1)
         return size
     }

@@ -73,7 +73,7 @@ class ModelManager: NSObject {
             else {
                 return CategoryModel(number: "", name: "", path: "")
         }
-        let model = CategoryModel(number: number, name: name, path: path, isLeaf: isLeaf)
+        var model = CategoryModel(number: number, name: name, path: path, isLeaf: isLeaf)
         model.level = level
         return model
     }
