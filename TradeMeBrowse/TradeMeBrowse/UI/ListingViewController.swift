@@ -11,6 +11,7 @@ import UIKit
 class ListingViewController: UIViewController {
 
     var parentCategory: CategoryModel?
+    var filterString: String?
     
     var listings = [ListingModel]()
     
@@ -36,7 +37,7 @@ class ListingViewController: UIViewController {
     
     func fetchListings() {
         guard let categoryNumber = parentCategory?.number else { return }
-        ModelManager.shared.requestSearchResults(in: categoryNumber, completion: {
+        ModelManager.shared.requestSearchResults(in: categoryNumber, filter: filterString, completion: {
             result in
             switch result {
             case .success(let models):
@@ -73,11 +74,16 @@ extension ListingViewController: UICollectionViewDelegate, UICollectionViewDataS
             let listing = listings[indexPath.item]
             cell.title.text = listing.name
             cell.ListingID.text = "\(listing.id)"
+            cell.thumbnail.image = listing.photo
             cell.startLoadingAnimation()
             listing.fetchPhotoIfNecessary { (result) in
                 DispatchQueue.main.async {
                     if case let .success(image) = result {
-                        cell.thumbnail.image = image
+                        let model = self.listings[indexPath.item]
+                        if let updatedCell = collectionView.cellForItem(at: indexPath) as? ListDetailCell {
+                            updatedCell.thumbnail.image = model.photo
+                        }
+//                        cell.thumbnail.image = image
                     }
                     cell.stopLoadingAnimation()
                 }

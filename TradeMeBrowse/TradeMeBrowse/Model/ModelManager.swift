@@ -79,8 +79,12 @@ class ModelManager: NSObject {
     }
     
     /// request data of listings with parameter category
-    func requestSearchResults(in category: String, completion: @escaping (Result<[ListingModel]>) -> Void) {
-        guard let url = URL(string: .baseURL + "Search/General.json?category=\(category)") else { return }
+    func requestSearchResults(in category: String, filter: String?, completion: @escaping (Result<[ListingModel]>) -> Void) {
+        var param = "category=\(category)"
+        if let filter = filter, filter.count > 0 {
+            param.append("&search_string=\(filter)")
+        }
+        guard let url = URL(string: .baseURL + "Search/General.json?\(param)") else { return }
         let queue = DispatchQueue(label: "com.search.trademe", qos: .background, attributes: .concurrent)
         Alamofire.request(url, method: .get,
                           headers:[.authorizationKey: authValue])
@@ -91,7 +95,7 @@ class ModelManager: NSObject {
                 guard let list = data[.listKey] as? Array<JSONDict> else { completion(Result.failure(ModelError.connectionFailed)); return }
                 
                 var models = [ListingModel]()
-                for index in 0..<min(count, 20) {
+                for index in 0..<list.count {
                     let model = self.transformList(list[index])
                     models.append(model)
                 }

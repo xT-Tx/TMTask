@@ -14,6 +14,7 @@ class ListingModel {
     let name: String
     let id: Int
     var photoURL: String?
+    var photo: UIImage?
     
     init(name: String, id: Int, photoURL: String?) {
         self.name = name
@@ -30,11 +31,15 @@ class ListingModel {
             return
         }
         if let image = ModelManager.shared.cachedImage(url) {
+            self.photo = image
             completion(Result.success(image))
         }
         else {
             ModelManager.shared.requestImage(url, completion: {
                 result in
+                if case .success(let image) = result {
+                    self.photo = image
+                }
                 completion(result)
             })
         }

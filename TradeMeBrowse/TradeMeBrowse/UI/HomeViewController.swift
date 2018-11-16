@@ -12,6 +12,8 @@ class HomeViewController: UIViewController {
 
     @IBOutlet fileprivate var collectionView: UICollectionView!
     @IBOutlet fileprivate var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet fileprivate var allListingToggle: UISwitch!
+    @IBOutlet fileprivate var keywordTextField: UITextField!
     
     static fileprivate let cellIdentifier = "CategoryCell"
 
@@ -66,10 +68,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCategory = categoryStore.category(at: indexPath.item)
-        if selectedCategory.isLeaf {
+        if allListingToggle.isOn || selectedCategory.isLeaf {
             let nextVCIdentifier = "ListingViewController"
             let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: nextVCIdentifier) as! ListingViewController
             nextVC.parentCategory = selectedCategory
+            nextVC.filterString = keywordTextField.text
             
             if UIDevice.current.userInterfaceIdiom == .pad {
                 let navigationVC = UINavigationController(rootViewController: nextVC)
@@ -79,7 +82,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             else {
                 navigationController?.pushViewController(nextVC, animated: true)
             }
-            return
+            if selectedCategory.isLeaf {
+                return
+            }
         }
         
         // not a leaf node. drill down in this category
