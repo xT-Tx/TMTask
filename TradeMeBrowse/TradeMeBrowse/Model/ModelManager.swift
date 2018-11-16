@@ -47,7 +47,7 @@ class ModelManager: NSObject {
     
     /// request category with parameters number, rootLevel and depth(default to 1)
     func requestCategory(_ number: String, rootLevel: Int, depth: UInt = 1, completion: @escaping (Result<[CategoryModel]>) -> Void) {
-        guard let url = URL(string: .baseURL + "Categories/\(number).json?depth=\(depth)") else { return }
+        guard let url = URL(string: .baseURL + "Categories/\(number).json?depth=\(depth)") else {completion(Result.failure(ModelError.connectionFailed)); return }
         let queue = DispatchQueue(label: "com.category.trademe", qos: .background, attributes: .concurrent)
         
         Alamofire.request(url, method: .get)
@@ -82,9 +82,11 @@ class ModelManager: NSObject {
     func requestSearchResults(in category: String, filter: String?, completion: @escaping (Result<[ListingModel]>) -> Void) {
         var param = "category=\(category)"
         if let filter = filter, filter.count > 0 {
-            param.append("&search_string=\(filter)")
+            if let encoded = filter.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed) {
+                param.append("&search_string=\(encoded)")
+            }
         }
-        guard let url = URL(string: .baseURL + "Search/General.json?\(param)") else { return }
+        guard let url = URL(string: .baseURL + "Search/General.json?\(param)") else { completion(Result.failure(ModelError.connectionFailed)); return }
         let queue = DispatchQueue(label: "com.search.trademe", qos: .background, attributes: .concurrent)
         Alamofire.request(url, method: .get,
                           headers:[.authorizationKey: authValue])
@@ -133,7 +135,7 @@ class ModelManager: NSObject {
     /// Returns a Request just in case that sometimes we want to cancel the request
     @discardableResult
     func requestImage(_ url: String, completion: @escaping (Result<UIImage>) -> Void = { _ in }) -> Request? {
-        guard let imageURL = URL(string: url) else { return nil }
+        guard let imageURL = URL(string: url) else {completion(Result.failure(ModelError.connectionFailed)); return nil }
         let request = Alamofire.request(url)
         let queue = DispatchQueue(label: "com.thumbnail.trademe", qos: .background, attributes: .concurrent)
         DispatchQueue.global().async {
@@ -152,7 +154,7 @@ class ModelManager: NSObject {
     }
     
     func requestItemDetails(_ listingId: String, completion: @escaping (Result<ItemDetailsModel>) -> Void) {
-        guard let url = URL(string: .baseURL + "Listings/\(listingId).json") else { return }
+        guard let url = URL(string: .baseURL + "Listings/\(listingId).json") else {completion(Result.failure(ModelError.connectionFailed)); return }
         let queue = DispatchQueue(label: "com.listings.trademe", qos: .background, attributes: .concurrent)
         Alamofire.request(url, method: .get,
                           headers:[.authorizationKey: authValue])
