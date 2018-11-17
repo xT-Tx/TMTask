@@ -74,24 +74,51 @@ extension ListingViewController: UICollectionViewDelegate, UICollectionViewDataS
             let listing = listings[indexPath.item]
             cell.title.text = listing.name
             cell.ListingID.text = "\(listing.id)"
-            cell.thumbnail.image = listing.photo
-            cell.startLoadingAnimation()
-            listing.fetchPhotoIfNecessary { (result) in
-                DispatchQueue.main.async {
-                    if case let .success(image) = result {
-                        let model = self.listings[indexPath.item]
-                        if let updatedCell = collectionView.cellForItem(at: indexPath) as? ListDetailCell {
-                            updatedCell.thumbnail.image = model.photo
-                        }
-//                        cell.thumbnail.image = image
+            if listing.modelState.didSet == nil {
+                listing.modelState.didSet = {
+                    state in
+                    guard state.value == .ready else {
+                        return
                     }
-                    cell.stopLoadingAnimation()
+                    DispatchQueue.main.async {
+                        guard let updatedCell = collectionView.cellForItem(at: indexPath) as? ListDetailCell else {
+                            // the cell at indexPath is not visible
+                            return
+                        }
+                        updatedCell.stopLoadingAnimation()
+                        updatedCell.thumbnail.image = listing.photo
+                    }
                 }
             }
+            switch listing.modelState.value {
+            case .needsUpdate:
+                cell.thumbnail.image = nil
+                cell.startLoadingAnimation()
+                listing.fetchPhotoIfNecessary()
+            case .ready:
+                cell.stopLoadingAnimation()
+                cell.thumbnail.image = listing.photo
+            case .updateInProgress:
+                cell.thumbnail.image = nil
+                cell.startLoadingAnimation()
+            }
+
             return cell
         }
         
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let listing = listings[indexPath.item]
+        guard let detailCell = cell as? ListDetailCell else { return }
+        switch listing.modelState.value {
+        case .ready:
+            detailCell.stopLoadingAnimation()
+            detailCell.thumbnail.image = listing.photo
+        default:
+            break
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

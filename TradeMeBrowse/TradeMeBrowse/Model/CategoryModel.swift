@@ -25,7 +25,7 @@ struct CategoryModel {
     }
 }
 
-enum CategoryState {
+enum ModelState {
     case ready
     case needsUpdate
     case updateInProgress
@@ -45,7 +45,7 @@ class CategoryStore {
         return categories.count
     }
     
-    func updateCategory(at index: Int = -1, completion: @escaping (_ deletedItems: [IndexPath], _ insertedItems: [IndexPath]) -> Void, errorHandler: @escaping (_ error: Error) -> Void) -> CategoryState {
+    func updateCategory(at index: Int = -1, completion: @escaping (_ deletedItems: [IndexPath], _ insertedItems: [IndexPath]) -> Void, errorHandler: @escaping (_ error: Error) -> Void) -> ModelState {
         if index == -1 {
             guard categories.count == 0 else { return .ready }
             ModelManager.shared.requestCategory("0", rootLevel: 0, depth: 1, completion: {
