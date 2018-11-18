@@ -12,8 +12,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet fileprivate var collectionView: UICollectionView!
     @IBOutlet fileprivate var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet fileprivate var allListingToggle: UISwitch!
-    @IBOutlet fileprivate var keywordTextField: UITextField!
+    @IBOutlet fileprivate var searchBar: UISearchBar!
     
     static fileprivate let cellIdentifier = "CategoryCell"
 
@@ -47,6 +46,9 @@ class HomeViewController: UIViewController {
         if state != .ready {
             activityIndicator.startAnimating()
         }
+        
+        searchBar.delegate = self
+        searchBar.returnKeyType = .done
     }
 }
 
@@ -60,6 +62,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let category = categoryStore.category(at: indexPath.item)
             cell.name.text = category.name
             cell.level = category.level
+            cell.disclosureDelegate = self
+            cell.isDisclosureEnabled = !category.isLeaf
             return cell
         }
         assert(true, "There must be something wrong!")
@@ -68,23 +72,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCategory = categoryStore.category(at: indexPath.item)
-        if allListingToggle.isOn || selectedCategory.isLeaf {
-            let nextVCIdentifier = "ListingViewController"
-            let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: nextVCIdentifier) as! ListingViewController
-            nextVC.parentCategory = selectedCategory
-            nextVC.filterString = keywordTextField.text
-            
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                let navigationVC = UINavigationController(rootViewController: nextVC)
-                navigationVC.modalPresentationStyle = .formSheet
-                present(navigationVC, animated: true, completion: nil)
-            }
-            else {
-                navigationController?.pushViewController(nextVC, animated: true)
-            }
-            if selectedCategory.isLeaf {
-                return
-            }
+        if selectedCategory.isLeaf {
+            presentListingView(selectedCategory)
+            return
         }
         
         // not a leaf node. drill down in this category
@@ -121,6 +111,22 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             collectionView.isUserInteractionEnabled = false
         }
     }
+    
+    fileprivate func presentListingView(_ selectedCategory: CategoryModel) {
+        let nextVCIdentifier = "ListingViewController"
+        let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: nextVCIdentifier) as! ListingViewController
+        nextVC.parentCategory = selectedCategory
+        nextVC.filterString = searchBar.text
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            let navigationVC = UINavigationController(rootViewController: nextVC)
+            navigationVC.modalPresentationStyle = .formSheet
+            present(navigationVC, animated: true, completion: nil)
+        }
+        else {
+            navigationController?.pushViewController(nextVC, animated: true)
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
@@ -129,5 +135,20 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let level = CGFloat(categoryStore.category(at: indexPath.item).level)
         size.width = size.width - collectionView.bounds.size.width * ContentLayout.marginPercent * (level - 1)
         return size
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+}
+
+extension HomeViewController: CellDisclosureDelegate {
+    func openDisclosure(_ sender: CategoryCell) {
+        guard let indexPath = collectionView.indexPath(for: sender) else { return }
+        
+        let selectedCategory = categoryStore.category(at: indexPath.item)
+        presentListingView(selectedCategory)
     }
 }

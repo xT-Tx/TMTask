@@ -17,6 +17,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GUz-ku-hNo">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.25490196078431371" green="0.53333333333333333" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="hAx-lR-m3d" kind="relationship" relationship="rootViewController" id="fKA-NB-XOE"/>
@@ -35,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OEH-c1-2Uc">
-                                <rect key="frame" x="0.0" y="115" width="375" height="552"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="10" id="ZP9-FW-rDn">
                                     <size key="itemSize" width="50" height="50"/>
@@ -44,45 +45,36 @@
                                     <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="RxW-X3-Cz6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="552"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="color" red="0.97254901959999995" green="0.64705882349999999" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 </activityIndicatorView>
                                 <cells/>
                             </collectionView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cOa-Zi-xRn">
-                                <rect key="frame" x="180" y="74" width="131" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="131" id="so0-YW-l3m"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <searchBar contentMode="redraw" placeholder="Search with keywords" translatesAutoresizingMaskIntoConstraints="NO" id="bmz-1e-FeY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <color key="barTintColor" red="0.25490196079999999" green="0.53333333329999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DU6-YM-tTl">
-                                <rect key="frame" x="46" y="74" width="51" height="31"/>
-                            </switch>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DU6-YM-tTl" firstAttribute="leading" secondItem="lYd-vY-biH" secondAttribute="leading" constant="46" id="5ou-pD-Pii"/>
-                            <constraint firstItem="OEH-c1-2Uc" firstAttribute="top" secondItem="DU6-YM-tTl" secondAttribute="bottom" constant="10" id="CKF-gf-VJA"/>
+                            <constraint firstItem="bmz-1e-FeY" firstAttribute="leading" secondItem="DcR-Tc-icZ" secondAttribute="leading" id="294-ln-KfO"/>
+                            <constraint firstItem="OEH-c1-2Uc" firstAttribute="top" secondItem="bmz-1e-FeY" secondAttribute="bottom" id="3tl-UO-K9n"/>
+                            <constraint firstItem="lYd-vY-biH" firstAttribute="top" secondItem="bmz-1e-FeY" secondAttribute="top" id="5gf-jk-5XR"/>
+                            <constraint firstAttribute="trailing" secondItem="bmz-1e-FeY" secondAttribute="trailing" id="OcH-8Z-nVi"/>
                             <constraint firstItem="lYd-vY-biH" firstAttribute="bottom" secondItem="OEH-c1-2Uc" secondAttribute="bottom" id="PII-P7-PbP"/>
                             <constraint firstItem="lYd-vY-biH" firstAttribute="trailing" secondItem="OEH-c1-2Uc" secondAttribute="trailing" id="VlP-b2-mff"/>
                             <constraint firstItem="OEH-c1-2Uc" firstAttribute="leading" secondItem="lYd-vY-biH" secondAttribute="leading" id="c4i-Hn-m1G"/>
-                            <constraint firstItem="cOa-Zi-xRn" firstAttribute="top" secondItem="lYd-vY-biH" secondAttribute="top" constant="10" id="sKV-hR-cUb"/>
-                            <constraint firstItem="lYd-vY-biH" firstAttribute="trailing" secondItem="cOa-Zi-xRn" secondAttribute="trailing" constant="64" id="w66-n5-02w"/>
-                            <constraint firstItem="DU6-YM-tTl" firstAttribute="top" secondItem="lYd-vY-biH" secondAttribute="top" constant="10" id="y0A-P1-Tnm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lYd-vY-biH"/>
                     </view>
                     <navigationItem key="navigationItem" id="VLY-T7-xGq"/>
                     <connections>
                         <outlet property="activityIndicator" destination="RxW-X3-Cz6" id="EvY-Fr-sYn"/>
-                        <outlet property="allListingToggle" destination="DU6-YM-tTl" id="k28-aj-QRj"/>
                         <outlet property="collectionView" destination="OEH-c1-2Uc" id="9TO-4o-wdo"/>
-                        <outlet property="keywordTextField" destination="cOa-Zi-xRn" id="JAl-eC-0ed"/>
+                        <outlet property="searchBar" destination="bmz-1e-FeY" id="QsE-dK-j4a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvI-jM-mD3" userLabel="First Responder" sceneMemberID="firstResponder"/>
